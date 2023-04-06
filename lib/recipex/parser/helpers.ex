@@ -105,7 +105,7 @@ defmodule Recipex.Parser.Helpers do
   end
 
   defp word do
-    utf8_string(negate(Chars.newline() ++ Chars.whitespace() ++ Chars.punctuation()), min: 1)
+    utf8_string(negate(Chars.newline() ++ Chars.whitespace() ++ Chars.punctuation() ++ [?~]), min: 1)
     |> label("word")
   end
 
