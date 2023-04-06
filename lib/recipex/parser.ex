@@ -24,8 +24,8 @@ defmodule Recipex.Parser do
     {rest, args, struct(Recipe, context)}
   end
 
-  defp process_block(rest, [comment: comment], %Recipe{} = context, _line, _offset) do
-    {rest, [], Recipe.register_step(context, {:comment, String.trim(comment)})}
+  defp process_block(rest, [comment: _comment], %Recipe{} = context, _line, _offset) do
+    {rest, [], context}
   end
 
   defp process_block(rest, [metadata: [key, value]], %Recipe{} = context, _line, _offset) do
@@ -50,11 +50,13 @@ defmodule Recipex.Parser do
           timer = struct(Timer, timer)
           {Timer.to_string(timer), Recipe.add_timer(acc, timer)}
 
-        {:comment, comment}, acc ->
-          {{:comment, String.trim(comment)}, acc}
+        {:comment, _comment}, acc ->
+          {"", acc}
       end)
 
-    {rest, [], Recipe.register_step(context, {:step, reduce_step(step)})}
+    step = step |> reduce_step() |> unwrap()
+
+    {rest, [], Recipe.register_step(context, step)}
   end
 
   defp reduce_step([]), do: []
@@ -65,4 +67,6 @@ defmodule Recipex.Parser do
       {str_list, []} -> [str_list |> Enum.join() |> String.trim()]
     end
   end
+
+  defp unwrap([value]), do: value
 end
