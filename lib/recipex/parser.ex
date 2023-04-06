@@ -48,7 +48,7 @@ defmodule Recipex.Parser do
 
         {:timer, timer}, acc ->
           timer = struct(Timer, timer)
-          {{:timer, timer}, Recipe.register_timer(acc, timer)}
+          {Timer.to_string(timer), Recipe.register_timer(acc, timer)}
 
         {:comment, comment}, acc ->
           {{:comment, String.trim(comment)}, acc}
