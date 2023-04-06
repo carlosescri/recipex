@@ -23,41 +23,40 @@ defmodule Recipex.Parser.Helpers do
     |> ignore(utf8_char([?:]))
     |> ignore(optional(whitespace()))
     |> utf8_string(negate(Chars.newline()), min: 0)
-    |> ignore(choice([newlines(), eos()]))
+    |> ignore(newlines())
     |> tag(:metadata)
   end
 
   def comment,
     do: choice([line_comment(), block_comment()])
 
-  def ingredient do
-    ignore(string("@"))
-    |> choice([
+  def component(chr, require_word \\ true) do
+    choices = [
       multi_word_component(),
       one_word_component()
-    ])
-    |> label("ingredient")
+    ] ++ if(require_word, do: [], else: [no_name_component()])
+
+    chr
+    |> string()
+    |> ignore()
+    |> choice(choices)
+  end
+
+  def ingredient do
+    component("@")
+    |> label("ingredient like @text{quantity%unit}")
     |> tag(:ingredient)
   end
 
   def timer do
-    ignore(string("~"))
-    |> choice([
-      multi_word_component(),
-      one_word_component(),
-      no_name_component()
-    ])
-    |> label("timer")
+    component("~", false)
+    |> label("timer like ~{2%minutes} or ~text{2%minutes}")
     |> tag(:timer)
   end
 
   def cookware do
-    ignore(string("#"))
-    |> choice([
-      multi_word_component(),
-      one_word_component()
-    ])
-    |> label("cookware")
+    component("#")
+    |> label("cookware like #frying pan{1}")
     |> tag(:cookware)
   end
 
@@ -143,15 +142,12 @@ defmodule Recipex.Parser.Helpers do
     |> unwrap_and_tag(:comment)
   end
 
-  defp line_comment do
-    inline_comment()
-    |> ignore(optional(choice([newlines(), eos()])))
-  end
+  defp line_comment,
+    do: ignore(inline_comment(), optional(newlines()))
 
-  defp block_comment do
-    inline_block_comment()
-    |> ignore(optional(newlines()))
-  end
+  defp block_comment,
+    do: ignore(inline_block_comment(), optional(newlines()))
 
-  defp negate(char_list), do: Enum.map(char_list, &{:not, &1})
+  defp negate(char_list),
+    do: Enum.map(char_list, &{:not, &1})
 end
