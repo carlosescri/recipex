@@ -851,7 +851,7 @@ defmodule Recipex.Chars do
     do:
       @close_punctuation ++
         @connector_punctuation ++
-        @dash_punctuation ++
+        # @dash_punctuation ++
         @final_punctuation ++
         @initial_punctuation ++
         @open_punctuation ++
