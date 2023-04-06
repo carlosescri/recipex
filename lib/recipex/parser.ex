@@ -18,7 +18,7 @@ defmodule Recipex.Parser do
       step()
     ])
 
-  defparsec(:parse_recipe, repeat(init, post_traverse(block, :process_block)))
+  defparsec :parse_recipe, repeat(init, post_traverse(block, :process_block))
 
   defp build_recipe(rest, args, context, _line, _offset) do
     {rest, args, struct(Recipe, context)}
@@ -40,15 +40,15 @@ defmodule Recipex.Parser do
 
         {:ingredient, ingredient}, acc ->
           ingredient = struct(Ingredient, ingredient)
-          {Ingredient.to_string(ingredient), Recipe.register_ingredient(acc, ingredient)}
+          {Ingredient.to_string(ingredient), Recipe.add_ingredient(acc, ingredient)}
 
         {:cookware, cookware}, acc ->
           cookware = struct(Cookware, cookware)
-          {Cookware.to_string(cookware), Recipe.register_cookware(acc, cookware)}
+          {Cookware.to_string(cookware), Recipe.add_cookware(acc, cookware)}
 
         {:timer, timer}, acc ->
           timer = struct(Timer, timer)
-          {Timer.to_string(timer), Recipe.register_timer(acc, timer)}
+          {Timer.to_string(timer), Recipe.add_timer(acc, timer)}
 
         {:comment, comment}, acc ->
           {{:comment, String.trim(comment)}, acc}

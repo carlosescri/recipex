@@ -7,11 +7,11 @@ defmodule Recipex.Recipe do
 
   defstruct metadata: %{}, cookware: [], ingredients: [], steps: [], timers: []
 
-  def register_cookware(%__MODULE{cookware: lst} = recipe, %Cookware{} = cookware) do
+  def add_cookware(%__MODULE{cookware: lst} = recipe, %Cookware{} = cookware) do
     %{recipe | cookware: lst ++ [cookware]}
   end
 
-  def register_ingredient(%__MODULE{ingredients: lst} = recipe, %Ingredient{} = ingredient) do
+  def add_ingredient(%__MODULE{ingredients: lst} = recipe, %Ingredient{} = ingredient) do
     %{recipe | ingredients: lst ++ [ingredient]}
   end
 
@@ -23,7 +23,7 @@ defmodule Recipex.Recipe do
     %{recipe | steps: steps ++ [step]}
   end
 
-  def register_timer(%__MODULE{timers: lst} = recipe, %Timer{} = timer) do
+  def add_timer(%__MODULE{timers: lst} = recipe, %Timer{} = timer) do
     %{recipe | timers: lst ++ [timer]}
   end
 end
