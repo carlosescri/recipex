@@ -15,15 +15,26 @@ defmodule Recipex.Recipe do
     %{recipe | ingredients: lst ++ [ingredient]}
   end
 
-  def register_metadata(%__MODULE{metadata: metadata} = recipe, key, value) do
+  def add_metadata(%__MODULE{metadata: metadata} = recipe, key, value) do
     %{recipe | metadata: Map.put(metadata, key, value)}
   end
 
-  def register_step(%__MODULE{steps: steps} = recipe, step) do
+  def add_step(%__MODULE{steps: steps} = recipe, step) do
     %{recipe | steps: steps ++ [step]}
   end
 
   def add_timer(%__MODULE{timers: lst} = recipe, %Timer{} = timer) do
     %{recipe | timers: lst ++ [timer]}
+  end
+
+  def reduce_steps(%__MODULE__{steps: steps} = recipe) do
+    steps =
+      Enum.map(steps, fn step ->
+        step
+        |> Stream.map(&to_string/1)
+        |> Enum.join()
+      end)
+
+    %{recipe | steps: steps}
   end
 end

@@ -32,6 +32,7 @@ defmodule Recipex.Parser.Helpers do
     case Keyword.get(opts, :break_at) do
       nil ->
         utf8_string(combinator, negate(Chars.newline() ++ to_exclude), min: min_length)
+
       break_at_combinator ->
         lookahead_not(break_at_combinator)
         |> utf8_char(negate(Chars.newline() ++ to_exclude))

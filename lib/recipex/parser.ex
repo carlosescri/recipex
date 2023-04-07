@@ -7,6 +7,7 @@ defmodule Recipex.Parser do
   alias Recipex.Cookware
   alias Recipex.Ingredient
   alias Recipex.Recipe
+  alias Recipex.Text
   alias Recipex.Timer
 
   init = post_traverse(empty(), :build_recipe)
@@ -60,7 +61,7 @@ defmodule Recipex.Parser do
   unit =
     text_chunk(empty(), exclude: [?}])
     |> label("unit")
-    |> unwrap_and_tag(:unit)
+    |> unwrap_and_tag(:units)
 
   amount =
     choice([
@@ -121,19 +122,21 @@ defmodule Recipex.Parser do
     )
 
   step_block =
-    repeat(choice([
-      ingredient,
-      cookware,
-      timer,
-      inline_multiline_comment,
-      inline_comment,
-      inline_text
-    ]))
+    repeat(
+      choice([
+        ingredient,
+        cookware,
+        timer,
+        inline_multiline_comment,
+        inline_comment,
+        inline_text
+      ])
+    )
     |> tag(:step)
 
   block = ignore_newlines(choice([metadata_block, comment_block, step_block]))
 
-  defparsec :parse_recipe, repeat(init, post_traverse(block, :process_block))
+  defparsec(:parse_recipe, repeat(init, post_traverse(block, :process_block)))
 
   defp build_recipe(rest, args, context, _line, _offset) do
     {rest, args, struct(Recipe, context)}
@@ -144,44 +147,45 @@ defmodule Recipex.Parser do
   end
 
   defp process_block(rest, [metadata: [key, value]], %Recipe{} = context, _line, _offset) do
-    {rest, [], Recipe.register_metadata(context, key, value)}
+    {rest, [], Recipe.add_metadata(context, key, value)}
   end
 
   defp process_block(rest, [step: step], %Recipe{} = context, _line, _offset) do
     {step, context} =
       Enum.map_reduce(step, context, fn
-        str, acc when is_binary(str) ->
-          {str, acc}
+        text, acc when is_binary(text) ->
+          {text, acc}
 
         {:ingredient, ingredient}, acc ->
           ingredient = struct(Ingredient, ingredient)
-          {Ingredient.to_string(ingredient), Recipe.add_ingredient(acc, ingredient)}
+          {ingredient, Recipe.add_ingredient(acc, ingredient)}
 
         {:cookware, cookware}, acc ->
           cookware = struct(Cookware, cookware)
-          {Cookware.to_string(cookware), Recipe.add_cookware(acc, cookware)}
+          {cookware, Recipe.add_cookware(acc, cookware)}
 
         {:timer, timer}, acc ->
           timer = struct(Timer, timer)
-          {Timer.to_string(timer), Recipe.add_timer(acc, timer)}
+          {timer, Recipe.add_timer(acc, timer)}
 
         {:comment, _comment}, acc ->
           {"", acc}
       end)
 
-    step = step |> reduce_step() |> unwrap()
-
-    {rest, [], Recipe.register_step(context, step)}
+    {rest, [], Recipe.add_step(context, reduce_step(step))}
   end
 
   defp reduce_step([]), do: []
 
   defp reduce_step(step) do
     case Enum.split_while(step, &is_binary(&1)) do
-      {str_list, [b | c]} -> [Enum.join(str_list), b] ++ reduce_step(c)
-      {str_list, []} -> [str_list |> Enum.join() |> String.trim()]
+      {str_list, [b | c]} -> [to_text(str_list), b] ++ reduce_step(c)
+      {str_list, []} -> [to_text(str_list)]
     end
   end
 
-  defp unwrap([value]), do: value
+  defp to_text(str_list) do
+    value = str_list |> Enum.join()
+    %Text{value: value}
+  end
 end

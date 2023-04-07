@@ -4,5 +4,7 @@ defmodule Recipex.Cookware do
   @enforce_keys [:name]
   defstruct @enforce_keys ++ [quantity: 1]
 
-  def to_string(%__MODULE__{name: name}), do: name
+  defimpl String.Chars do
+    def to_string(cookware), do: cookware.name
+  end
 end

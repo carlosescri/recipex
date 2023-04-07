@@ -1,9 +1,10 @@
 defmodule Recipex.Timer do
   @moduledoc false
 
-  @enforce_keys [:quantity, :unit]
+  @enforce_keys [:quantity, :units]
   defstruct [:name] ++ @enforce_keys
 
-  def to_string(%__MODULE__{quantity: quantity, unit: unit}),
-    do: "#{quantity} #{unit}"
+  defimpl String.Chars do
+    def to_string(timer), do: "#{timer.quantity} #{timer.units}"
+  end
 end
