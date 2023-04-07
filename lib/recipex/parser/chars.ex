@@ -1,4 +1,4 @@
-defmodule Recipex.Chars do
+defmodule Recipex.Parser.Chars do
   @moduledoc false
 
   # Unicode Category: Zs
@@ -27,33 +27,33 @@ defmodule Recipex.Chars do
   ]
 
   # Unicode Category: Pd
-  @dash_punctuation [
-    0x002D,
-    0x058A,
-    0x05BE,
-    0x1400,
-    0x1806,
-    0x2010,
-    0x2011,
-    0x2012,
-    0x2013,
-    0x2014,
-    0x2015,
-    0x2E17,
-    0x2E1A,
-    0x2E3A,
-    0x2E3B,
-    0x2E40,
-    0x301C,
-    0x3030,
-    0x30A0,
-    0xFE31,
-    0xFE32,
-    0xFE58,
-    0xFE63,
-    0xFF0D,
-    0x10EAD
-  ]
+  # @dash_punctuation [
+  #   0x002D,
+  #   0x058A,
+  #   0x05BE,
+  #   0x1400,
+  #   0x1806,
+  #   0x2010,
+  #   0x2011,
+  #   0x2012,
+  #   0x2013,
+  #   0x2014,
+  #   0x2015,
+  #   0x2E17,
+  #   0x2E1A,
+  #   0x2E3A,
+  #   0x2E3B,
+  #   0x2E40,
+  #   0x301C,
+  #   0x3030,
+  #   0x30A0,
+  #   0xFE31,
+  #   0xFE32,
+  #   0xFE58,
+  #   0xFE63,
+  #   0xFF0D,
+  #   0x10EAD
+  # ]
 
   # Unicode Category: Pe
   @close_punctuation [

@@ -11,12 +11,127 @@ defmodule Recipex.Parser do
 
   init = post_traverse(empty(), :build_recipe)
 
-  block =
+  metadata_start = string(">>")
+
+  comment_start = string("--")
+
+  multiline_comment_start = string("[-")
+
+  multiline_comment_end = string("-]")
+
+  ingredient_start = string("@")
+
+  cookware_start = string("#")
+
+  timer_start = string("~")
+
+  qty_unit_separator = string("%")
+
+  metadata_block =
+    ignore(metadata_start)
+    |> ignore_optional_whitespace()
+    |> text_chunk(exclude: [?:])
+    |> ignore(utf8_char([?:]))
+    |> ignore_optional_whitespace()
+    |> text_chunk(min: 0)
+    |> tag(:metadata)
+
+  inline_comment =
+    ignore(comment_start)
+    |> ignore_optional_whitespace()
+    |> text_chunk(min: 0)
+    |> unwrap_and_tag(:comment)
+
+  inline_multiline_comment =
+    ignore(multiline_comment_start)
+    |> repeat(utf8_char(lookahead_not(multiline_comment_end), []))
+    |> ignore(multiline_comment_end)
+    |> ignore_optional_whitespace()
+    |> reduce({List, :to_string, []})
+    |> unwrap_and_tag(:comment)
+
+  comment_block = choice([inline_comment, inline_multiline_comment])
+
+  quantity =
+    text_chunk(empty(), exclude: [?%, ?}])
+    |> label("quantity")
+    |> unwrap_and_tag(:quantity)
+
+  unit =
+    text_chunk(empty(), exclude: [?}])
+    |> label("unit")
+    |> unwrap_and_tag(:unit)
+
+  amount =
     choice([
-      metadata(),
-      comment(),
-      step()
+      quantity |> ignore(qty_unit_separator) |> concat(unit),
+      quantity
     ])
+
+  no_name_component =
+    ignore(string("{"))
+    |> concat(optional(amount))
+    |> ignore(string("}"))
+
+  one_word_component =
+    word()
+    |> unwrap_and_tag(:name)
+    |> concat(optional(no_name_component))
+
+  multi_word_component =
+    word()
+    |> repeat(choice([word(), whitespace()]))
+    |> reduce({Enum, :join, [""]})
+    |> unwrap_and_tag(:name)
+    |> concat(no_name_component)
+
+  ingredient =
+    ignore(ingredient_start)
+    |> choice([
+      multi_word_component,
+      one_word_component
+    ])
+    |> label("ingredient like @text, @text{2} @text text{}, @text{2%cups}")
+    |> tag(:ingredient)
+
+  cookware =
+    ignore(cookware_start)
+    |> choice([
+      multi_word_component,
+      one_word_component
+    ])
+    |> label("cookware like #frying pan{} or #bowl")
+    |> tag(:cookware)
+
+  timer =
+    ignore(timer_start)
+    |> choice([
+      multi_word_component,
+      one_word_component,
+      no_name_component
+    ])
+    |> label("timer like ~{2%minutes} or ~text{2%minutes}")
+    |> tag(:timer)
+
+  inline_text =
+    text_chunk(
+      empty(),
+      exclude: [?@, ?#, ?~],
+      break_at: choice([comment_start, multiline_comment_start])
+    )
+
+  step_block =
+    repeat(choice([
+      ingredient,
+      cookware,
+      timer,
+      inline_multiline_comment,
+      inline_comment,
+      inline_text
+    ]))
+    |> tag(:step)
+
+  block = ignore_newlines(choice([metadata_block, comment_block, step_block]))
 
   defparsec :parse_recipe, repeat(init, post_traverse(block, :process_block))
 
