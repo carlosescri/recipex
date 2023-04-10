@@ -30,10 +30,8 @@ defmodule Recipex.Parser do
 
   metadata_block =
     ignore(metadata_start)
-    |> ignore_optional_whitespace()
     |> text_chunk(exclude: [?:])
     |> ignore(utf8_char([?:]))
-    |> ignore_optional_whitespace()
     |> text_chunk(min: 0)
     |> tag(:metadata)
 
@@ -147,7 +145,7 @@ defmodule Recipex.Parser do
   end
 
   defp process_block(rest, [metadata: [key, value]], %Recipe{} = context, _line, _offset) do
-    {rest, [], Recipe.add_metadata(context, key, value)}
+    {rest, [], Recipe.add_metadata(context, String.trim(key), String.trim(value))}
   end
 
   defp process_block(rest, [step: step], %Recipe{} = context, _line, _offset) do
@@ -157,15 +155,15 @@ defmodule Recipex.Parser do
           {text, acc}
 
         {:ingredient, ingredient}, acc ->
-          ingredient = struct(Ingredient, ingredient)
+          ingredient = Ingredient.new(ingredient)
           {ingredient, Recipe.add_ingredient(acc, ingredient)}
 
         {:cookware, cookware}, acc ->
-          cookware = struct(Cookware, cookware)
+          cookware = Cookware.new(cookware)
           {cookware, Recipe.add_cookware(acc, cookware)}
 
         {:timer, timer}, acc ->
-          timer = struct(Timer, timer)
+          timer = Timer.new(timer)
           {timer, Recipe.add_timer(acc, timer)}
 
         {:comment, _comment}, acc ->
@@ -182,10 +180,13 @@ defmodule Recipex.Parser do
       {str_list, [b | c]} -> [to_text(str_list), b] ++ reduce_step(c)
       {str_list, []} -> [to_text(str_list)]
     end
+    |> Enum.reject(&is_nil/1)
   end
 
   defp to_text(str_list) do
-    value = str_list |> Enum.join()
-    %Text{value: value}
+    case Enum.join(str_list) do
+      "" -> nil
+      value -> %Text{value: value}
+    end
   end
 end

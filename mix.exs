@@ -18,8 +18,14 @@ defmodule Recipex.MixProject do
   end
 
   def application do
-    []
+    [
+      extra_applications: extra_applications(Mix.env())
+    ]
   end
+
+  defp extra_applications(env) when env in [:dev, :test], do: [:eex]
+
+  defp extra_applications(_), do: []
 
   defp package do
     %{
@@ -32,7 +38,9 @@ defmodule Recipex.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:nimble_parsec, "~> 1.3"}
+      {:nimble_parsec, "~> 1.3"},
+      {:httpoison, "~> 2.0", only: [:dev, :test]},
+      {:yaml_elixir, "~> 2.9", only: [:dev, :test]}
     ]
   end
 end
