@@ -847,7 +847,8 @@ defmodule Recipex.Parser.Chars do
   ]
 
   @doc false
-  def punctuation(),
+  @spec punctuation :: list
+  def punctuation,
     do:
       @close_punctuation ++
         @connector_punctuation ++
@@ -857,8 +858,10 @@ defmodule Recipex.Parser.Chars do
         @other_punctuation
 
   @doc false
-  def whitespace(), do: @space_separator
+  @spec whitespace :: list
+  def whitespace, do: @space_separator
 
   @doc false
-  def newline(), do: @line_separator
+  @spec newline :: list
+  def newline, do: @line_separator
 end

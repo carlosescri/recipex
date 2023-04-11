@@ -8,6 +8,7 @@ defmodule Mix.Tasks.Test.Build do
 
   use Mix.Task
 
+  @spec run(term) :: :ok
   def run(_) do
     Application.ensure_all_started(:yaml_elixir)
 
@@ -32,6 +33,7 @@ defmodule Mix.Tasks.Test.Build do
       IO.puts("Error building canonical tests: #{error.message}")
   end
 
+  @spec build_test({binary, %{binary => binary}}) :: %{atom => binary}
   defp build_test({name, %{"source" => source, "result" => result}}) do
     %{
       description: build_test_description(name),
@@ -40,6 +42,7 @@ defmodule Mix.Tasks.Test.Build do
     }
   end
 
+  @spec build_file([%{atom => binary}]) :: binary
   defp build_file(tests) do
     template = """
     defmodule CanonicalTest do
@@ -49,7 +52,7 @@ defmodule Mix.Tasks.Test.Build do
         map
         |> Map.get("steps", [])
         |> Enum.map(fn components_list ->
-          Enum.map(components_list, &(update_fun.(&1)))
+          Enum.map(components_list, &update_fun.(&1))
         end)
         |> then(&Map.put(map, "steps", &1))
       end
@@ -103,6 +106,7 @@ defmodule Mix.Tasks.Test.Build do
     EEx.eval_string(template, assigns: [tests: tests])
   end
 
+  @spec build_test_description(binary) :: binary
   defp build_test_description(camelcase_name) do
     camelcase_name
     |> Macro.underscore()
@@ -110,6 +114,7 @@ defmodule Mix.Tasks.Test.Build do
     |> String.replace("_", " ")
   end
 
+  @spec build_test_source(binary) :: binary
   defp build_test_source(source) do
     String.replace(source, "\n", "\\n")
   end

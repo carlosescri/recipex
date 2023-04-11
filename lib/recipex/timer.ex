@@ -5,11 +5,22 @@ defmodule Recipex.Timer do
 
   defstruct [:quantity, :units, name: ""]
 
+  @type t :: %__MODULE__{
+          quantity: number | binary | nil,
+          units: binary | nil,
+          name: binary
+        }
+
+  @spec new(list) :: t()
   def new(opts \\ []) do
-    ParserUtils.new_component(__MODULE__, opts)
+    opts
+    |> Map.new(&ParserUtils.parse_value/1)
+    |> then(&struct(__MODULE__, &1))
   end
 
   defimpl String.Chars do
-    def to_string(timer), do: "#{timer.quantity} #{timer.units}"
+    @spec to_string(Recipex.Timer.t()) :: binary
+    def to_string(timer),
+      do: String.trim("#{timer.quantity} #{timer.units}")
   end
 end

@@ -136,10 +136,12 @@ defmodule Recipex.Parser do
 
   defparsec(:parse_recipe, repeat(init, post_traverse(block, :process_block)))
 
+  @spec build_recipe(binary, list, map, term, term) :: {binary, list, Recipe.t()}
   defp build_recipe(rest, args, context, _line, _offset) do
     {rest, args, struct(Recipe, context)}
   end
 
+  @spec process_block(binary, list, Recipe.t(), term, term) :: {binary, [], Recipe.t()}
   defp process_block(rest, [comment: _comment], %Recipe{} = context, _line, _offset) do
     {rest, [], context}
   end
@@ -173,6 +175,9 @@ defmodule Recipex.Parser do
     {rest, [], Recipe.add_step(context, reduce_step(step))}
   end
 
+  @spec reduce_step([Cookware.t() | Ingredient.t() | binary | Timer.t()]) :: [
+          Cookware.t() | Ingredient.t() | Text.t() | Timer.t()
+        ]
   defp reduce_step([]), do: []
 
   defp reduce_step(step) do
@@ -183,6 +188,7 @@ defmodule Recipex.Parser do
     |> Enum.reject(&is_nil/1)
   end
 
+  @spec to_text([binary]) :: nil | Text.t()
   defp to_text(str_list) do
     case Enum.join(str_list) do
       "" -> nil
