@@ -2,13 +2,12 @@ defmodule CanonicalTest do
   use ExUnit.Case
 
   defp update_steps_components(map, update_fun) do
-    Map.update(map, "steps", [], fn steps ->
-      Enum.map(steps, fn components_list ->
-        Enum.map(components_list, fn component ->
-          update_fun.(component)
-        end)
-      end)
+    map
+    |> Map.get("steps", [])
+    |> Enum.map(fn components_list ->
+      Enum.map(components_list, &(update_fun.(&1)))
     end)
+    |> then(&Map.put(map, "steps", &1))
   end
 
   defp parse(text) do

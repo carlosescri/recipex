@@ -7,7 +7,7 @@ defmodule Recipex do
   alias Recipex.Recipe
 
   def parse(text, opts \\ []) do
-    with {:ok, [], "", recipe, _, _} = Parser.parse_recipe(text) do
+    with {:ok, [], "", recipe, _, _} <- Parser.parse_recipe(text) do
       if Keyword.get(opts, :reduce, false) do
         Recipe.reduce_steps(recipe)
       else
