@@ -13,7 +13,8 @@ defmodule Recipex.MixProject do
       description: "",
       aliases: [],
       deps: deps(),
-      package: package()
+      package: package(),
+      dialyzer: [plt_add_apps: [:mix]]
     ]
   end
 
@@ -40,7 +41,8 @@ defmodule Recipex.MixProject do
     [
       {:nimble_parsec, "~> 1.3"},
       {:httpoison, "~> 2.0", only: [:dev, :test]},
-      {:yaml_elixir, "~> 2.9", only: [:dev, :test]}
+      {:yaml_elixir, "~> 2.9", only: [:dev, :test]},
+      {:dialyxir, "~> 1.3", only: [:dev], runtime: false}
     ]
   end
 end
