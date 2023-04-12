@@ -7,26 +7,40 @@ defmodule Recipex.Recipe do
 
   defstruct metadata: %{}, cookware: [], ingredients: [], steps: [], timers: []
 
-  def add_cookware(%__MODULE{cookware: lst} = recipe, %Cookware{} = cookware) do
+  @type t :: %__MODULE__{
+          metadata: %{binary => binary},
+          cookware: [Cookware.t()],
+          ingredients: [Ingredient.t()],
+          steps: [[Cookware.t() | Ingredient.t() | Text.t() | Timer.t()] | binary],
+          timers: [Timer.t()]
+        }
+
+  @spec add_cookware(t(), Cookware.t()) :: t()
+  def add_cookware(%__MODULE__{cookware: lst} = recipe, %Cookware{} = cookware) do
     %{recipe | cookware: lst ++ [cookware]}
   end
 
-  def add_ingredient(%__MODULE{ingredients: lst} = recipe, %Ingredient{} = ingredient) do
+  @spec add_ingredient(t(), Ingredient.t()) :: t()
+  def add_ingredient(%__MODULE__{ingredients: lst} = recipe, %Ingredient{} = ingredient) do
     %{recipe | ingredients: lst ++ [ingredient]}
   end
 
-  def add_metadata(%__MODULE{metadata: metadata} = recipe, key, value) do
+  @spec add_metadata(t(), binary, term) :: t()
+  def add_metadata(%__MODULE__{metadata: metadata} = recipe, key, value) do
     %{recipe | metadata: Map.put(metadata, key, value)}
   end
 
-  def add_step(%__MODULE{steps: steps} = recipe, step) do
+  @spec add_step(t(), [Cookware.t() | Ingredient.t() | Text.t() | Timer.t()]) :: t()
+  def add_step(%__MODULE__{steps: steps} = recipe, step) do
     %{recipe | steps: steps ++ [step]}
   end
 
-  def add_timer(%__MODULE{timers: lst} = recipe, %Timer{} = timer) do
+  @spec add_timer(t(), Timer.t()) :: t()
+  def add_timer(%__MODULE__{timers: lst} = recipe, %Timer{} = timer) do
     %{recipe | timers: lst ++ [timer]}
   end
 
+  @spec reduce_steps(t()) :: t()
   def reduce_steps(%__MODULE__{steps: steps} = recipe) do
     steps =
       Enum.map(steps, fn step ->

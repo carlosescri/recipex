@@ -6,6 +6,7 @@ defmodule Mix.Tasks.Test.Update do
 
   @tests_url "https://raw.githubusercontent.com/cooklang/spec/main/tests/canonical.yaml"
 
+  @spec run(term) :: :ok
   def run(_) do
     Mix.Task.run("app.start")
 
@@ -21,6 +22,7 @@ defmodule Mix.Tasks.Test.Update do
       IO.puts("Error updating canonical tests: #{error.message}")
   end
 
+  @spec download_canonical_tests! :: binary
   defp download_canonical_tests! do
     case HTTPoison.get(@tests_url) do
       {:ok, %{body: body}} ->

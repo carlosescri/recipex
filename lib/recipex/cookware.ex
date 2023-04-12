@@ -3,8 +3,14 @@ defmodule Recipex.Cookware do
 
   alias Recipex.Parser.Utils, as: ParserUtils
 
-  defstruct [quantity: 1, name: ""]
+  defstruct quantity: 1, name: ""
 
+  @type t :: %__MODULE__{
+          quantity: number | binary | nil,
+          name: binary
+        }
+
+  @spec new(list) :: t()
   def new(opts \\ []) do
     quantity =
       opts
@@ -23,6 +29,7 @@ defmodule Recipex.Cookware do
   end
 
   defimpl String.Chars do
+    @spec to_string(Recipex.Cookware.t()) :: binary
     def to_string(cookware), do: cookware.name
   end
 end
