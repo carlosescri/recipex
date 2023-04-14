@@ -3,6 +3,7 @@ defmodule Recipex.Recipe do
 
   alias Recipex.Cookware
   alias Recipex.Ingredient
+  alias Recipex.Text
   alias Recipex.Timer
 
   defstruct metadata: %{}, cookware: [], ingredients: [], steps: [], timers: []
@@ -47,6 +48,7 @@ defmodule Recipex.Recipe do
         step
         |> Stream.map(&to_string/1)
         |> Enum.join()
+        |> String.trim()
       end)
 
     %{recipe | steps: steps}
