@@ -34,12 +34,13 @@ defmodule Recipex.Parser do
   component_word =
     empty()
     # Adding Chars.punctuation() here increases compile time a lot.
-    # TODO: add punctuation when we compile the parser from a .exs template.
+    # TODO: use Unicode lib instead of Chars
     |> lookahead_not(
       utf8_char(
         Chars.newline() ++
           Chars.whitespace() ++
-          [?{, ?}, ?@, ?#, ?~]
+          Chars.punctuation()
+          # [?{, ?}, ?@, ?#, ?~]
       )
     )
     |> utf8_char([])
