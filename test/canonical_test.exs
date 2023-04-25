@@ -10,9 +10,8 @@ defmodule CanonicalTest do
     |> then(&Map.put(map, "steps", &1))
   end
 
-  defp parse(text) do
-    text
-    |> Recipex.parse()
+  defp compatible(recipe) do
+    recipe
     |> Map.from_struct()
     |> stringify_keys()
     |> Map.take(["steps", "metadata"])
@@ -48,7 +47,7 @@ defmodule CanonicalTest do
     do: component
 
   test "mutiple ingridents without stopper" do
-    parsed = parse("@chilli cut into pieces and @garlic\n")
+    {:ok, parsed} = Recipex.parse("@chilli cut into pieces and @garlic\n")
 
     expected =
       patch_result(%{
@@ -62,11 +61,11 @@ defmodule CanonicalTest do
         ]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "fractions with spaces" do
-    parsed = parse("@milk{1 / 2 %cup}\n")
+    {:ok, parsed} = Recipex.parse("@milk{1 / 2 %cup}\n")
 
     expected =
       patch_result(%{
@@ -76,11 +75,11 @@ defmodule CanonicalTest do
         ]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "fractions like" do
-    parsed = parse("@milk{01/2%cup}\n")
+    {:ok, parsed} = Recipex.parse("@milk{01/2%cup}\n")
 
     expected =
       patch_result(%{
@@ -90,11 +89,11 @@ defmodule CanonicalTest do
         ]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "multi line directions" do
-    parsed = parse("Add a bit of chilli\n\nAdd a bit of hummus\n")
+    {:ok, parsed} = Recipex.parse("Add a bit of chilli\n\nAdd a bit of hummus\n")
 
     expected =
       patch_result(%{
@@ -105,11 +104,11 @@ defmodule CanonicalTest do
         ]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "timer with name" do
-    parsed = parse("Fry for ~potato{42%minutes}\n")
+    {:ok, parsed} = Recipex.parse("Fry for ~potato{42%minutes}\n")
 
     expected =
       patch_result(%{
@@ -122,23 +121,23 @@ defmodule CanonicalTest do
         ]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "comments" do
-    parsed = parse("-- testing comments\n")
+    {:ok, parsed} = Recipex.parse("-- testing comments\n")
     expected = patch_result(%{"metadata" => %{}, "steps" => []})
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "servings" do
-    parsed = parse(">> servings: 1|2|3\n")
+    {:ok, parsed} = Recipex.parse(">> servings: 1|2|3\n")
     expected = patch_result(%{"metadata" => %{"servings" => "1|2|3"}, "steps" => []})
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "direction with ingrident" do
-    parsed = parse("Add @chilli{3%items}, @ginger{10%g} and @milk{1%l}.\n")
+    {:ok, parsed} = Recipex.parse("Add @chilli{3%items}, @ginger{10%g} and @milk{1%l}.\n")
 
     expected =
       patch_result(%{
@@ -156,11 +155,11 @@ defmodule CanonicalTest do
         ]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "fractions" do
-    parsed = parse("@milk{1/2%cup}\n")
+    {:ok, parsed} = Recipex.parse("@milk{1/2%cup}\n")
 
     expected =
       patch_result(%{
@@ -170,17 +169,17 @@ defmodule CanonicalTest do
         ]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "metadata multiword key" do
-    parsed = parse(">> cooking time: 30 mins\n")
+    {:ok, parsed} = Recipex.parse(">> cooking time: 30 mins\n")
     expected = patch_result(%{"metadata" => %{"cooking time" => "30 mins"}, "steps" => []})
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "equipment quantity multiple words" do
-    parsed = parse("#frying pan{two small}\n")
+    {:ok, parsed} = Recipex.parse("#frying pan{two small}\n")
 
     expected =
       patch_result(%{
@@ -188,11 +187,11 @@ defmodule CanonicalTest do
         "steps" => [[%{"name" => "frying pan", "quantity" => "two small", "type" => "cookware"}]]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "ingrident implicit units" do
-    parsed = parse("@chilli{3}\n")
+    {:ok, parsed} = Recipex.parse("@chilli{3}\n")
 
     expected =
       patch_result(%{
@@ -202,17 +201,17 @@ defmodule CanonicalTest do
         ]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "metadata" do
-    parsed = parse(">> sourced: babooshka\n")
+    {:ok, parsed} = Recipex.parse(">> sourced: babooshka\n")
     expected = patch_result(%{"metadata" => %{"sourced" => "babooshka"}, "steps" => []})
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "timer fractional" do
-    parsed = parse("Fry for ~{1/2%hour}\n")
+    {:ok, parsed} = Recipex.parse("Fry for ~{1/2%hour}\n")
 
     expected =
       patch_result(%{
@@ -225,11 +224,11 @@ defmodule CanonicalTest do
         ]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "ingrident explicit units" do
-    parsed = parse("@chilli{3%items}\n")
+    {:ok, parsed} = Recipex.parse("@chilli{3%items}\n")
 
     expected =
       patch_result(%{
@@ -239,11 +238,11 @@ defmodule CanonicalTest do
         ]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "quantity as text" do
-    parsed = parse("@thyme{few%springs}\n")
+    {:ok, parsed} = Recipex.parse("@thyme{few%springs}\n")
 
     expected =
       patch_result(%{
@@ -260,11 +259,11 @@ defmodule CanonicalTest do
         ]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "equipment multiple words with spaces" do
-    parsed = parse("Fry in #frying pan{ }\n")
+    {:ok, parsed} = Recipex.parse("Fry in #frying pan{ }\n")
 
     expected =
       patch_result(%{
@@ -277,11 +276,11 @@ defmodule CanonicalTest do
         ]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "ingredient with emoji" do
-    parsed = parse("Add some @🧂\n")
+    {:ok, parsed} = Recipex.parse("Add some @🧂\n")
 
     expected =
       patch_result(%{
@@ -294,11 +293,11 @@ defmodule CanonicalTest do
         ]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "quantity digital string" do
-    parsed = parse("@water{7 k }\n")
+    {:ok, parsed} = Recipex.parse("@water{7 k }\n")
 
     expected =
       patch_result(%{
@@ -308,17 +307,17 @@ defmodule CanonicalTest do
         ]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "metadata multiword key with spaces" do
-    parsed = parse(">>cooking time    :30 mins\n")
+    {:ok, parsed} = Recipex.parse(">>cooking time    :30 mins\n")
     expected = patch_result(%{"metadata" => %{"cooking time" => "30 mins"}, "steps" => []})
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "equipment multiple words" do
-    parsed = parse("Fry in #frying pan{}\n")
+    {:ok, parsed} = Recipex.parse("Fry in #frying pan{}\n")
 
     expected =
       patch_result(%{
@@ -331,11 +330,11 @@ defmodule CanonicalTest do
         ]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "equipment one word" do
-    parsed = parse("Simmer in #pan for some time\n")
+    {:ok, parsed} = Recipex.parse("Simmer in #pan for some time\n")
 
     expected =
       patch_result(%{
@@ -349,11 +348,11 @@ defmodule CanonicalTest do
         ]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "basic direction" do
-    parsed = parse("Add a bit of chilli\n")
+    {:ok, parsed} = Recipex.parse("Add a bit of chilli\n")
 
     expected =
       patch_result(%{
@@ -361,11 +360,11 @@ defmodule CanonicalTest do
         "steps" => [[%{"type" => "text", "value" => "Add a bit of chilli"}]]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "comments after ingredients" do
-    parsed = parse("@thyme{2%springs} -- testing comments\nand some text\n")
+    {:ok, parsed} = Recipex.parse("@thyme{2%springs} -- testing comments\nand some text\n")
 
     expected =
       patch_result(%{
@@ -379,11 +378,11 @@ defmodule CanonicalTest do
         ]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "equipment quantity one word" do
-    parsed = parse("#frying pan{three}\n")
+    {:ok, parsed} = Recipex.parse("#frying pan{three}\n")
 
     expected =
       patch_result(%{
@@ -391,11 +390,11 @@ defmodule CanonicalTest do
         "steps" => [[%{"name" => "frying pan", "quantity" => "three", "type" => "cookware"}]]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "directions with numbers" do
-    parsed = parse("Heat 5L of water\n")
+    {:ok, parsed} = Recipex.parse("Heat 5L of water\n")
 
     expected =
       patch_result(%{
@@ -403,11 +402,11 @@ defmodule CanonicalTest do
         "steps" => [[%{"type" => "text", "value" => "Heat 5L of water"}]]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "comments with ingredients" do
-    parsed = parse("-- testing comments\n@thyme{2%springs}\n")
+    {:ok, parsed} = Recipex.parse("-- testing comments\n@thyme{2%springs}\n")
 
     expected =
       patch_result(%{
@@ -417,11 +416,11 @@ defmodule CanonicalTest do
         ]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "ingrident no units not only string" do
-    parsed = parse("@5peppers\n")
+    {:ok, parsed} = Recipex.parse("@5peppers\n")
 
     expected =
       patch_result(%{
@@ -431,11 +430,11 @@ defmodule CanonicalTest do
         ]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "ingrident no units" do
-    parsed = parse("@chilli\n")
+    {:ok, parsed} = Recipex.parse("@chilli\n")
 
     expected =
       patch_result(%{
@@ -445,11 +444,11 @@ defmodule CanonicalTest do
         ]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "equipment quantity" do
-    parsed = parse("#frying pan{2}\n")
+    {:ok, parsed} = Recipex.parse("#frying pan{2}\n")
 
     expected =
       patch_result(%{
@@ -457,11 +456,11 @@ defmodule CanonicalTest do
         "steps" => [[%{"name" => "frying pan", "quantity" => 2, "type" => "cookware"}]]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "directions with degrees" do
-    parsed = parse("Heat oven up to 200°C\n")
+    {:ok, parsed} = Recipex.parse("Heat oven up to 200°C\n")
 
     expected =
       patch_result(%{
@@ -469,11 +468,11 @@ defmodule CanonicalTest do
         "steps" => [[%{"type" => "text", "value" => "Heat oven up to 200°C"}]]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "ingrident with numbers" do
-    parsed = parse("@tipo 00 flour{250%g}\n")
+    {:ok, parsed} = Recipex.parse("@tipo 00 flour{250%g}\n")
 
     expected =
       patch_result(%{
@@ -490,11 +489,11 @@ defmodule CanonicalTest do
         ]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "metadata break" do
-    parsed = parse("hello >> sourced: babooshka\n")
+    {:ok, parsed} = Recipex.parse("hello >> sourced: babooshka\n")
 
     expected =
       patch_result(%{
@@ -502,11 +501,11 @@ defmodule CanonicalTest do
         "steps" => [[%{"type" => "text", "value" => "hello >> sourced: babooshka"}]]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "multi word ingrident no amount" do
-    parsed = parse("@hot chilli{}\n")
+    {:ok, parsed} = Recipex.parse("@hot chilli{}\n")
 
     expected =
       patch_result(%{
@@ -516,11 +515,11 @@ defmodule CanonicalTest do
         ]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "slash in text" do
-    parsed = parse("Preheat the oven to 200℃/Fan 180°C.\n")
+    {:ok, parsed} = Recipex.parse("Preheat the oven to 200℃/Fan 180°C.\n")
 
     expected =
       patch_result(%{
@@ -528,11 +527,11 @@ defmodule CanonicalTest do
         "steps" => [[%{"type" => "text", "value" => "Preheat the oven to 200℃/Fan 180°C."}]]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "multi word ingrident" do
-    parsed = parse("@hot chilli{3}\n")
+    {:ok, parsed} = Recipex.parse("@hot chilli{3}\n")
 
     expected =
       patch_result(%{
@@ -542,11 +541,11 @@ defmodule CanonicalTest do
         ]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "ingrident explicit units with spaces" do
-    parsed = parse("@chilli{ 3 % items }\n")
+    {:ok, parsed} = Recipex.parse("@chilli{ 3 % items }\n")
 
     expected =
       patch_result(%{
@@ -556,11 +555,11 @@ defmodule CanonicalTest do
         ]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "multiple lines" do
-    parsed = parse(">> Prep Time: 15 minutes\n>> Cook Time: 30 minutes\n")
+    {:ok, parsed} = Recipex.parse(">> Prep Time: 15 minutes\n>> Cook Time: 30 minutes\n")
 
     expected =
       patch_result(%{
@@ -568,11 +567,11 @@ defmodule CanonicalTest do
         "steps" => []
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "fractions in directions" do
-    parsed = parse("knife cut about every 1/2 inches\n")
+    {:ok, parsed} = Recipex.parse("knife cut about every 1/2 inches\n")
 
     expected =
       patch_result(%{
@@ -580,11 +579,11 @@ defmodule CanonicalTest do
         "steps" => [[%{"type" => "text", "value" => "knife cut about every 1/2 inches"}]]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "ingredient multiple words with leading number" do
-    parsed = parse("Top with @1000 island dressing{ }\n")
+    {:ok, parsed} = Recipex.parse("Top with @1000 island dressing{ }\n")
 
     expected =
       patch_result(%{
@@ -602,11 +601,11 @@ defmodule CanonicalTest do
         ]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "equipment multiple words with leading number" do
-    parsed = parse("Fry in #7-inch nonstick frying pan{ }\n")
+    {:ok, parsed} = Recipex.parse("Fry in #7-inch nonstick frying pan{ }\n")
 
     expected =
       patch_result(%{
@@ -619,11 +618,11 @@ defmodule CanonicalTest do
         ]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "timer decimal" do
-    parsed = parse("Fry for ~{1.5%minutes}\n")
+    {:ok, parsed} = Recipex.parse("Fry for ~{1.5%minutes}\n")
 
     expected =
       patch_result(%{
@@ -636,11 +635,11 @@ defmodule CanonicalTest do
         ]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "ingrident without stopper" do
-    parsed = parse("@chilli cut into pieces\n")
+    {:ok, parsed} = Recipex.parse("@chilli cut into pieces\n")
 
     expected =
       patch_result(%{
@@ -653,11 +652,11 @@ defmodule CanonicalTest do
         ]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 
   test "timer integer" do
-    parsed = parse("Fry for ~{10%minutes}\n")
+    {:ok, parsed} = Recipex.parse("Fry for ~{10%minutes}\n")
 
     expected =
       patch_result(%{
@@ -670,6 +669,6 @@ defmodule CanonicalTest do
         ]
       })
 
-    assert parsed == expected
+    assert compatible(parsed) == expected
   end
 end
