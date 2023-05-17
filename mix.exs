@@ -41,6 +41,7 @@ defmodule Recipex.MixProject do
     [
       {:nimble_parsec, "~> 1.3", only: [:dev, :test]},
       {:unicode, "~> 1.16", only: [:dev, :test]},
+      {:unicode_set, "~> 1.3", only: [:dev, :test]},
       {:httpoison, "~> 2.0", only: [:dev, :test]},
       {:yaml_elixir, "~> 2.9", only: [:dev, :test]},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},

@@ -1,5 +1,5 @@
 # Generated from lib/recipex/parser.ex.exs, do not edit.
-# Generated at 2023-04-25 20:02:29Z.
+# Generated at 2023-05-17 19:55:38Z.
 
 defmodule Recipex.Parser do
   @moduledoc false
@@ -5925,250 +5925,143 @@ defmodule Recipex.Parser do
               x0 === 10713 or
               x0 === 10715 or x0 === 10749 or x0 === 11811 or x0 === 11813 or x0 === 11815 or
               x0 === 11817 or
-              x0 === 12297 or x0 === 12299 or x0 === 12301 or x0 === 12303 or x0 === 12305 or
-              x0 === 12309 or
-              x0 === 12311 or x0 === 12313 or x0 === 12315 or x0 === 12318 or x0 === 12319 or
-              x0 === 64830 or
-              x0 === 65048 or x0 === 65078 or x0 === 65080 or x0 === 65082 or x0 === 65084 or
-              x0 === 65086 or
-              x0 === 65088 or x0 === 65090 or x0 === 65092 or x0 === 65096 or x0 === 65114 or
-              x0 === 65116 or
-              x0 === 65118 or x0 === 65289 or x0 === 65341 or x0 === 65373 or x0 === 65376 or
-              x0 === 65379 or
-              x0 === 95 or x0 === 8255 or x0 === 8256 or x0 === 8276 or x0 === 65075 or
-              x0 === 65076 or
-              x0 === 65101 or x0 === 65102 or x0 === 65103 or x0 === 65343 or x0 === 187 or
-              x0 === 8217 or
-              x0 === 8221 or x0 === 8250 or x0 === 11779 or x0 === 11781 or x0 === 11786 or
-              x0 === 11789 or
-              x0 === 11805 or x0 === 11809 or x0 === 171 or x0 === 8216 or x0 === 8219 or
-              x0 === 8220 or
-              x0 === 8223 or x0 === 8249 or x0 === 11778 or x0 === 11780 or x0 === 11785 or
-              x0 === 11788 or
-              x0 === 11804 or x0 === 11808 or x0 === 40 or x0 === 91 or x0 === 123 or x0 === 3898 or
-              x0 === 3900 or x0 === 5787 or x0 === 8218 or x0 === 8222 or x0 === 8261 or
-              x0 === 8317 or
-              x0 === 8333 or x0 === 8968 or x0 === 8970 or x0 === 9001 or x0 === 10088 or
-              x0 === 10090 or
-              x0 === 10092 or x0 === 10094 or x0 === 10096 or x0 === 10098 or x0 === 10100 or
-              x0 === 10181 or
-              x0 === 10214 or x0 === 10216 or x0 === 10218 or x0 === 10220 or x0 === 10222 or
-              x0 === 10627 or
-              x0 === 10629 or x0 === 10631 or x0 === 10633 or x0 === 10635 or x0 === 10637 or
-              x0 === 10639 or
-              x0 === 10641 or x0 === 10643 or x0 === 10645 or x0 === 10647 or x0 === 10712 or
-              x0 === 10714 or
-              x0 === 10748 or x0 === 11810 or x0 === 11812 or x0 === 11814 or x0 === 11816 or
-              x0 === 11842 or
-              x0 === 12296 or x0 === 12298 or x0 === 12300 or x0 === 12302 or x0 === 12304 or
-              x0 === 12308 or
-              x0 === 12310 or x0 === 12312 or x0 === 12314 or x0 === 12317 or x0 === 64831 or
-              x0 === 65047 or
-              x0 === 65077 or x0 === 65079 or x0 === 65081 or x0 === 65083 or x0 === 65085 or
-              x0 === 65087 or
-              x0 === 65089 or x0 === 65091 or x0 === 65095 or x0 === 65113 or x0 === 65115 or
-              x0 === 65117 or
-              x0 === 65288 or x0 === 65339 or x0 === 65371 or x0 === 65375 or x0 === 65378 or
-              x0 === 33 or
-              x0 === 34 or x0 === 35 or x0 === 37 or x0 === 38 or x0 === 39 or x0 === 42 or
-              x0 === 44 or
-              x0 === 46 or x0 === 47 or x0 === 58 or x0 === 59 or x0 === 63 or x0 === 64 or
-              x0 === 92 or
-              x0 === 161 or x0 === 167 or x0 === 182 or x0 === 183 or x0 === 191 or x0 === 894 or
-              x0 === 903 or
-              x0 === 1370 or x0 === 1371 or x0 === 1372 or x0 === 1373 or x0 === 1374 or
-              x0 === 1375 or
-              x0 === 1417 or x0 === 1472 or x0 === 1475 or x0 === 1478 or x0 === 1523 or
-              x0 === 1524 or
-              x0 === 1545 or x0 === 1546 or x0 === 1548 or x0 === 1549 or x0 === 1563 or
-              x0 === 1566 or
-              x0 === 1567 or x0 === 1642 or x0 === 1643 or x0 === 1644 or x0 === 1645 or
-              x0 === 1748 or
-              x0 === 1792 or x0 === 1793 or x0 === 1794 or x0 === 1795 or x0 === 1796 or
-              x0 === 1797 or
-              x0 === 1798 or x0 === 1799 or x0 === 1800 or x0 === 1801 or x0 === 1802 or
-              x0 === 1803 or
-              x0 === 1804 or x0 === 1805 or x0 === 2039 or x0 === 2040 or x0 === 2041 or
-              x0 === 2096 or
-              x0 === 2097 or x0 === 2098 or x0 === 2099 or x0 === 2100 or x0 === 2101 or
-              x0 === 2102 or
-              x0 === 2103 or x0 === 2104 or x0 === 2105 or x0 === 2106 or x0 === 2107 or
-              x0 === 2108 or
-              x0 === 2109 or x0 === 2110 or x0 === 2142 or x0 === 2404 or x0 === 2405 or
-              x0 === 2416 or
-              x0 === 2557 or x0 === 2678 or x0 === 2800 or x0 === 3191 or x0 === 3204 or
-              x0 === 3572 or
-              x0 === 3663 or x0 === 3674 or x0 === 3675 or x0 === 3844 or x0 === 3845 or
-              x0 === 3846 or
-              x0 === 3847 or x0 === 3848 or x0 === 3849 or x0 === 3850 or x0 === 3851 or
-              x0 === 3852 or
-              x0 === 3853 or x0 === 3854 or x0 === 3855 or x0 === 3856 or x0 === 3857 or
-              x0 === 3858 or
-              x0 === 3860 or x0 === 3973 or x0 === 4048 or x0 === 4049 or x0 === 4050 or
-              x0 === 4051 or
-              x0 === 4052 or x0 === 4057 or x0 === 4058 or x0 === 4170 or x0 === 4171 or
-              x0 === 4172 or
-              x0 === 4173 or x0 === 4174 or x0 === 4175 or x0 === 4347 or x0 === 4960 or
-              x0 === 4961 or
-              x0 === 4962 or x0 === 4963 or x0 === 4964 or x0 === 4965 or x0 === 4966 or
-              x0 === 4967 or
-              x0 === 4968 or x0 === 5742 or x0 === 5867 or x0 === 5868 or x0 === 5869 or
-              x0 === 5941 or
-              x0 === 5942 or x0 === 6100 or x0 === 6101 or x0 === 6102 or x0 === 6104 or
-              x0 === 6105 or
-              x0 === 6106 or x0 === 6144 or x0 === 6145 or x0 === 6146 or x0 === 6147 or
-              x0 === 6148 or
-              x0 === 6149 or x0 === 6151 or x0 === 6152 or x0 === 6153 or x0 === 6154 or
-              x0 === 6468 or
-              x0 === 6469 or x0 === 6686 or x0 === 6687 or x0 === 6816 or x0 === 6817 or
-              x0 === 6818 or
-              x0 === 6819 or x0 === 6820 or x0 === 6821 or x0 === 6822 or x0 === 6824 or
-              x0 === 6825 or
-              x0 === 6826 or x0 === 6827 or x0 === 6828 or x0 === 6829 or x0 === 7002 or
-              x0 === 7003 or
-              x0 === 7004 or x0 === 7005 or x0 === 7006 or x0 === 7007 or x0 === 7008 or
-              x0 === 7164 or
-              x0 === 7165 or x0 === 7166 or x0 === 7167 or x0 === 7227 or x0 === 7228 or
-              x0 === 7229 or
-              x0 === 7230 or x0 === 7231 or x0 === 7294 or x0 === 7295 or x0 === 7360 or
-              x0 === 7361 or
-              x0 === 7362 or x0 === 7363 or x0 === 7364 or x0 === 7365 or x0 === 7366 or
-              x0 === 7367 or
-              x0 === 7379 or x0 === 8214 or x0 === 8215 or x0 === 8224 or x0 === 8225 or
-              x0 === 8226 or
-              x0 === 8227 or x0 === 8228 or x0 === 8229 or x0 === 8230 or x0 === 8231 or
-              x0 === 8240 or
-              x0 === 8241 or x0 === 8242 or x0 === 8243 or x0 === 8244 or x0 === 8245 or
-              x0 === 8246 or
-              x0 === 8247 or x0 === 8248 or x0 === 8251 or x0 === 8252 or x0 === 8253 or
-              x0 === 8254 or
-              x0 === 8257 or x0 === 8258 or x0 === 8259 or x0 === 8263 or x0 === 8264 or
-              x0 === 8265 or
-              x0 === 8266 or x0 === 8267 or x0 === 8268 or x0 === 8269 or x0 === 8270 or
-              x0 === 8271 or
-              x0 === 8272 or x0 === 8273 or x0 === 8275 or x0 === 8277 or x0 === 8278 or
-              x0 === 8279 or
-              x0 === 8280 or x0 === 8281 or x0 === 8282 or x0 === 8283 or x0 === 8284 or
-              x0 === 8285 or
-              x0 === 8286 or x0 === 11513 or x0 === 11514 or x0 === 11515 or x0 === 11516 or
-              x0 === 11518 or
-              x0 === 11519 or x0 === 11632 or x0 === 11776 or x0 === 11777 or x0 === 11782 or
-              x0 === 11783 or
-              x0 === 11784 or x0 === 11787 or x0 === 11790 or x0 === 11791 or x0 === 11792 or
-              x0 === 11793 or
-              x0 === 11794 or x0 === 11795 or x0 === 11796 or x0 === 11797 or x0 === 11798 or
-              x0 === 11800 or
-              x0 === 11801 or x0 === 11803 or x0 === 11806 or x0 === 11807 or x0 === 11818 or
-              x0 === 11819 or
-              x0 === 11820 or x0 === 11821 or x0 === 11822 or x0 === 11824 or x0 === 11825 or
-              x0 === 11826 or
-              x0 === 11827 or x0 === 11828 or x0 === 11829 or x0 === 11830 or x0 === 11831 or
-              x0 === 11832 or
-              x0 === 11833 or x0 === 11836 or x0 === 11837 or x0 === 11838 or x0 === 11839 or
-              x0 === 11841 or
-              x0 === 11843 or x0 === 11844 or x0 === 11845 or x0 === 11846 or x0 === 11847 or
-              x0 === 11848 or
-              x0 === 11849 or x0 === 11850 or x0 === 11851 or x0 === 11852 or x0 === 11853 or
-              x0 === 11854 or
-              x0 === 11855 or x0 === 11858 or x0 === 12289 or x0 === 12290 or x0 === 12291 or
-              x0 === 12349 or
-              x0 === 12539 or x0 === 42238 or x0 === 42239 or x0 === 42509 or x0 === 42510 or
-              x0 === 42511 or
-              x0 === 42611 or x0 === 42622 or x0 === 42738 or x0 === 42739 or x0 === 42740 or
-              x0 === 42741 or
-              x0 === 42742 or x0 === 42743 or x0 === 43124 or x0 === 43125 or x0 === 43126 or
-              x0 === 43127 or
-              x0 === 43214 or x0 === 43215 or x0 === 43256 or x0 === 43257 or x0 === 43258 or
-              x0 === 43260 or
-              x0 === 43310 or x0 === 43311 or x0 === 43359 or x0 === 43457 or x0 === 43458 or
-              x0 === 43459 or
-              x0 === 43460 or x0 === 43461 or x0 === 43462 or x0 === 43463 or x0 === 43464 or
-              x0 === 43465 or
-              x0 === 43466 or x0 === 43467 or x0 === 43468 or x0 === 43469 or x0 === 43486 or
-              x0 === 43487 or
-              x0 === 43612 or x0 === 43613 or x0 === 43614 or x0 === 43615 or x0 === 43742 or
-              x0 === 43743 or
-              x0 === 43760 or x0 === 43761 or x0 === 44011 or x0 === 65040 or x0 === 65041 or
-              x0 === 65042 or
-              x0 === 65043 or x0 === 65044 or x0 === 65045 or x0 === 65046 or x0 === 65049 or
-              x0 === 65072 or
-              x0 === 65093 or x0 === 65094 or x0 === 65097 or x0 === 65098 or x0 === 65099 or
-              x0 === 65100 or
-              x0 === 65104 or x0 === 65105 or x0 === 65106 or x0 === 65108 or x0 === 65109 or
-              x0 === 65110 or
-              x0 === 65111 or x0 === 65119 or x0 === 65120 or x0 === 65121 or x0 === 65128 or
-              x0 === 65130 or
-              x0 === 65131 or x0 === 65281 or x0 === 65282 or x0 === 65283 or x0 === 65285 or
-              x0 === 65286 or
-              x0 === 65287 or x0 === 65290 or x0 === 65292 or x0 === 65294 or x0 === 65295 or
-              x0 === 65306 or
-              x0 === 65307 or x0 === 65311 or x0 === 65312 or x0 === 65340 or x0 === 65377 or
-              x0 === 65380 or
-              x0 === 65381 or x0 === 65792 or x0 === 65793 or x0 === 65794 or x0 === 66463 or
-              x0 === 66512 or
-              x0 === 66927 or x0 === 67671 or x0 === 67871 or x0 === 67903 or x0 === 68176 or
-              x0 === 68177 or
-              x0 === 68178 or x0 === 68179 or x0 === 68180 or x0 === 68181 or x0 === 68182 or
-              x0 === 68183 or
-              x0 === 68184 or x0 === 68223 or x0 === 68336 or x0 === 68337 or x0 === 68338 or
-              x0 === 68339 or
-              x0 === 68340 or x0 === 68341 or x0 === 68342 or x0 === 68409 or x0 === 68410 or
-              x0 === 68411 or
-              x0 === 68412 or x0 === 68413 or x0 === 68414 or x0 === 68415 or x0 === 68505 or
-              x0 === 68506 or
-              x0 === 68507 or x0 === 68508 or x0 === 69461 or x0 === 69462 or x0 === 69463 or
-              x0 === 69464 or
-              x0 === 69465 or x0 === 69703 or x0 === 69704 or x0 === 69705 or x0 === 69706 or
-              x0 === 69707 or
-              x0 === 69708 or x0 === 69709 or x0 === 69819 or x0 === 69820 or x0 === 69822 or
-              x0 === 69823 or
-              x0 === 69824 or x0 === 69825 or x0 === 69952 or x0 === 69953 or x0 === 69954 or
-              x0 === 69955 or
-              x0 === 70004 or x0 === 70005 or x0 === 70085 or x0 === 70086 or x0 === 70087 or
-              x0 === 70088 or
-              x0 === 70093 or x0 === 70107 or x0 === 70109 or x0 === 70110 or x0 === 70111 or
-              x0 === 70200 or
-              x0 === 70201 or x0 === 70202 or x0 === 70203 or x0 === 70204 or x0 === 70205 or
-              x0 === 70313 or
-              x0 === 70731 or x0 === 70732 or x0 === 70733 or x0 === 70734 or x0 === 70735 or
-              x0 === 70746 or
-              x0 === 70747 or x0 === 70749 or x0 === 70854 or x0 === 71105 or x0 === 71106 or
-              x0 === 71107 or
-              x0 === 71108 or x0 === 71109 or x0 === 71110 or x0 === 71111 or x0 === 71112 or
-              x0 === 71113 or
-              x0 === 71114 or x0 === 71115 or x0 === 71116 or x0 === 71117 or x0 === 71118 or
-              x0 === 71119 or
-              x0 === 71120 or x0 === 71121 or x0 === 71122 or x0 === 71123 or x0 === 71124 or
-              x0 === 71125 or
-              x0 === 71126 or x0 === 71127 or x0 === 71233 or x0 === 71234 or x0 === 71235 or
-              x0 === 71264 or
-              x0 === 71265 or x0 === 71266 or x0 === 71267 or x0 === 71268 or x0 === 71269 or
-              x0 === 71270 or
-              x0 === 71271 or x0 === 71272 or x0 === 71273 or x0 === 71274 or x0 === 71275 or
-              x0 === 71276 or
-              x0 === 71484 or x0 === 71485 or x0 === 71486 or x0 === 71739 or x0 === 72004 or
-              x0 === 72005 or
-              x0 === 72006 or x0 === 72162 or x0 === 72255 or x0 === 72256 or x0 === 72257 or
-              x0 === 72258 or
-              x0 === 72259 or x0 === 72260 or x0 === 72261 or x0 === 72262 or x0 === 72346 or
-              x0 === 72347 or
-              x0 === 72348 or x0 === 72350 or x0 === 72351 or x0 === 72352 or x0 === 72353 or
-              x0 === 72354 or
-              x0 === 72769 or x0 === 72770 or x0 === 72771 or x0 === 72772 or x0 === 72773 or
-              x0 === 72816 or
-              x0 === 72817 or x0 === 73463 or x0 === 73464 or x0 === 73727 or x0 === 74864 or
-              x0 === 74865 or
-              x0 === 74866 or x0 === 74867 or x0 === 74868 or x0 === 92782 or x0 === 92783 or
-              x0 === 92917 or
-              x0 === 92983 or x0 === 92984 or x0 === 92985 or x0 === 92986 or x0 === 92987 or
-              x0 === 92996 or
-              x0 === 93847 or x0 === 93848 or x0 === 93849 or x0 === 93850 or x0 === 94178 or
-              x0 === 113_823 or
-              x0 === 121_479 or x0 === 121_480 or x0 === 121_481 or x0 === 121_482 or
-              x0 === 121_483 or
-              x0 === 125_278 or x0 === 125_279 do
+              x0 === 11862 or x0 === 11864 or x0 === 11866 or x0 === 11868 or x0 === 12297 or
+              x0 === 12299 or
+              x0 === 12301 or x0 === 12303 or x0 === 12305 or x0 === 12309 or x0 === 12311 or
+              x0 === 12313 or
+              x0 === 12315 or (x0 >= 12318 and x0 <= 12319) or x0 === 64830 or x0 === 65048 or
+              x0 === 65078 or
+              x0 === 65080 or x0 === 65082 or x0 === 65084 or x0 === 65086 or x0 === 65088 or
+              x0 === 65090 or
+              x0 === 65092 or x0 === 65096 or x0 === 65114 or x0 === 65116 or x0 === 65118 or
+              x0 === 65289 or
+              x0 === 65341 or x0 === 65373 or x0 === 65376 or x0 === 65379 or x0 === 95 or
+              (x0 >= 8255 and x0 <= 8256) or x0 === 8276 or (x0 >= 65075 and x0 <= 65076) or
+              (x0 >= 65101 and x0 <= 65103) or x0 === 65343 or x0 === 187 or x0 === 8217 or
+              x0 === 8221 or
+              x0 === 8250 or x0 === 11779 or x0 === 11781 or x0 === 11786 or x0 === 11789 or
+              x0 === 11805 or
+              x0 === 11809 or x0 === 171 or x0 === 8216 or (x0 >= 8219 and x0 <= 8220) or
+              x0 === 8223 or
+              x0 === 8249 or x0 === 11778 or x0 === 11780 or x0 === 11785 or x0 === 11788 or
+              x0 === 11804 or
+              x0 === 11808 or x0 === 40 or x0 === 91 or x0 === 123 or x0 === 3898 or x0 === 3900 or
+              x0 === 5787 or x0 === 8218 or x0 === 8222 or x0 === 8261 or x0 === 8317 or
+              x0 === 8333 or
+              x0 === 8968 or x0 === 8970 or x0 === 9001 or x0 === 10088 or x0 === 10090 or
+              x0 === 10092 or
+              x0 === 10094 or x0 === 10096 or x0 === 10098 or x0 === 10100 or x0 === 10181 or
+              x0 === 10214 or
+              x0 === 10216 or x0 === 10218 or x0 === 10220 or x0 === 10222 or x0 === 10627 or
+              x0 === 10629 or
+              x0 === 10631 or x0 === 10633 or x0 === 10635 or x0 === 10637 or x0 === 10639 or
+              x0 === 10641 or
+              x0 === 10643 or x0 === 10645 or x0 === 10647 or x0 === 10712 or x0 === 10714 or
+              x0 === 10748 or
+              x0 === 11810 or x0 === 11812 or x0 === 11814 or x0 === 11816 or x0 === 11842 or
+              x0 === 11861 or
+              x0 === 11863 or x0 === 11865 or x0 === 11867 or x0 === 12296 or x0 === 12298 or
+              x0 === 12300 or
+              x0 === 12302 or x0 === 12304 or x0 === 12308 or x0 === 12310 or x0 === 12312 or
+              x0 === 12314 or
+              x0 === 12317 or x0 === 64831 or x0 === 65047 or x0 === 65077 or x0 === 65079 or
+              x0 === 65081 or
+              x0 === 65083 or x0 === 65085 or x0 === 65087 or x0 === 65089 or x0 === 65091 or
+              x0 === 65095 or
+              x0 === 65113 or x0 === 65115 or x0 === 65117 or x0 === 65288 or x0 === 65339 or
+              x0 === 65371 or
+              x0 === 65375 or x0 === 65378 or (x0 >= 33 and x0 <= 35) or (x0 >= 37 and x0 <= 39) or
+              x0 === 42 or
+              x0 === 44 or (x0 >= 46 and x0 <= 47) or (x0 >= 58 and x0 <= 59) or
+              (x0 >= 63 and x0 <= 64) or
+              x0 === 92 or x0 === 161 or x0 === 167 or (x0 >= 182 and x0 <= 183) or x0 === 191 or
+              x0 === 894 or
+              x0 === 903 or (x0 >= 1370 and x0 <= 1375) or x0 === 1417 or x0 === 1472 or
+              x0 === 1475 or
+              x0 === 1478 or (x0 >= 1523 and x0 <= 1524) or (x0 >= 1545 and x0 <= 1546) or
+              (x0 >= 1548 and x0 <= 1549) or x0 === 1563 or (x0 >= 1565 and x0 <= 1567) or
+              (x0 >= 1642 and x0 <= 1645) or x0 === 1748 or (x0 >= 1792 and x0 <= 1805) or
+              (x0 >= 2039 and x0 <= 2041) or (x0 >= 2096 and x0 <= 2110) or x0 === 2142 or
+              (x0 >= 2404 and x0 <= 2405) or x0 === 2416 or x0 === 2557 or x0 === 2678 or
+              x0 === 2800 or
+              x0 === 3191 or x0 === 3204 or x0 === 3572 or x0 === 3663 or
+              (x0 >= 3674 and x0 <= 3675) or
+              (x0 >= 3844 and x0 <= 3858) or x0 === 3860 or x0 === 3973 or
+              (x0 >= 4048 and x0 <= 4052) or
+              (x0 >= 4057 and x0 <= 4058) or (x0 >= 4170 and x0 <= 4175) or x0 === 4347 or
+              (x0 >= 4960 and x0 <= 4968) or x0 === 5742 or (x0 >= 5867 and x0 <= 5869) or
+              (x0 >= 5941 and x0 <= 5942) or (x0 >= 6100 and x0 <= 6102) or
+              (x0 >= 6104 and x0 <= 6106) or
+              (x0 >= 6144 and x0 <= 6149) or (x0 >= 6151 and x0 <= 6154) or
+              (x0 >= 6468 and x0 <= 6469) or
+              (x0 >= 6686 and x0 <= 6687) or (x0 >= 6816 and x0 <= 6822) or
+              (x0 >= 6824 and x0 <= 6829) or
+              (x0 >= 7002 and x0 <= 7008) or (x0 >= 7037 and x0 <= 7038) or
+              (x0 >= 7164 and x0 <= 7167) or
+              (x0 >= 7227 and x0 <= 7231) or (x0 >= 7294 and x0 <= 7295) or
+              (x0 >= 7360 and x0 <= 7367) or
+              x0 === 7379 or (x0 >= 8214 and x0 <= 8215) or (x0 >= 8224 and x0 <= 8231) or
+              (x0 >= 8240 and x0 <= 8248) or (x0 >= 8251 and x0 <= 8254) or
+              (x0 >= 8257 and x0 <= 8259) or
+              (x0 >= 8263 and x0 <= 8273) or x0 === 8275 or (x0 >= 8277 and x0 <= 8286) or
+              (x0 >= 11513 and x0 <= 11516) or (x0 >= 11518 and x0 <= 11519) or x0 === 11632 or
+              (x0 >= 11776 and x0 <= 11777) or (x0 >= 11782 and x0 <= 11784) or x0 === 11787 or
+              (x0 >= 11790 and x0 <= 11798) or (x0 >= 11800 and x0 <= 11801) or x0 === 11803 or
+              (x0 >= 11806 and x0 <= 11807) or (x0 >= 11818 and x0 <= 11822) or
+              (x0 >= 11824 and x0 <= 11833) or
+              (x0 >= 11836 and x0 <= 11839) or x0 === 11841 or (x0 >= 11843 and x0 <= 11855) or
+              (x0 >= 11858 and x0 <= 11860) or (x0 >= 12289 and x0 <= 12291) or x0 === 12349 or
+              x0 === 12539 or
+              (x0 >= 42238 and x0 <= 42239) or (x0 >= 42509 and x0 <= 42511) or x0 === 42611 or
+              x0 === 42622 or
+              (x0 >= 42738 and x0 <= 42743) or (x0 >= 43124 and x0 <= 43127) or
+              (x0 >= 43214 and x0 <= 43215) or
+              (x0 >= 43256 and x0 <= 43258) or x0 === 43260 or (x0 >= 43310 and x0 <= 43311) or
+              x0 === 43359 or
+              (x0 >= 43457 and x0 <= 43469) or (x0 >= 43486 and x0 <= 43487) or
+              (x0 >= 43612 and x0 <= 43615) or
+              (x0 >= 43742 and x0 <= 43743) or (x0 >= 43760 and x0 <= 43761) or x0 === 44011 or
+              (x0 >= 65040 and x0 <= 65046) or x0 === 65049 or x0 === 65072 or
+              (x0 >= 65093 and x0 <= 65094) or
+              (x0 >= 65097 and x0 <= 65100) or (x0 >= 65104 and x0 <= 65106) or
+              (x0 >= 65108 and x0 <= 65111) or
+              (x0 >= 65119 and x0 <= 65121) or x0 === 65128 or (x0 >= 65130 and x0 <= 65131) or
+              (x0 >= 65281 and x0 <= 65283) or (x0 >= 65285 and x0 <= 65287) or x0 === 65290 or
+              x0 === 65292 or
+              (x0 >= 65294 and x0 <= 65295) or (x0 >= 65306 and x0 <= 65307) or
+              (x0 >= 65311 and x0 <= 65312) or
+              x0 === 65340 or x0 === 65377 or (x0 >= 65380 and x0 <= 65381) or
+              (x0 >= 65792 and x0 <= 65794) or
+              x0 === 66463 or x0 === 66512 or x0 === 66927 or x0 === 67671 or x0 === 67871 or
+              x0 === 67903 or
+              (x0 >= 68176 and x0 <= 68184) or x0 === 68223 or (x0 >= 68336 and x0 <= 68342) or
+              (x0 >= 68409 and x0 <= 68415) or (x0 >= 68505 and x0 <= 68508) or
+              (x0 >= 69461 and x0 <= 69465) or
+              (x0 >= 69510 and x0 <= 69513) or (x0 >= 69703 and x0 <= 69709) or
+              (x0 >= 69819 and x0 <= 69820) or
+              (x0 >= 69822 and x0 <= 69825) or (x0 >= 69952 and x0 <= 69955) or
+              (x0 >= 70004 and x0 <= 70005) or
+              (x0 >= 70085 and x0 <= 70088) or x0 === 70093 or x0 === 70107 or
+              (x0 >= 70109 and x0 <= 70111) or
+              (x0 >= 70200 and x0 <= 70205) or x0 === 70313 or (x0 >= 70731 and x0 <= 70735) or
+              (x0 >= 70746 and x0 <= 70747) or x0 === 70749 or x0 === 70854 or
+              (x0 >= 71105 and x0 <= 71127) or
+              (x0 >= 71233 and x0 <= 71235) or (x0 >= 71264 and x0 <= 71276) or x0 === 71353 or
+              (x0 >= 71484 and x0 <= 71486) or x0 === 71739 or (x0 >= 72004 and x0 <= 72006) or
+              x0 === 72162 or
+              (x0 >= 72255 and x0 <= 72262) or (x0 >= 72346 and x0 <= 72348) or
+              (x0 >= 72350 and x0 <= 72354) or
+              (x0 >= 72448 and x0 <= 72457) or (x0 >= 72769 and x0 <= 72773) or
+              (x0 >= 72816 and x0 <= 72817) or
+              (x0 >= 73463 and x0 <= 73464) or (x0 >= 73539 and x0 <= 73551) or x0 === 73727 or
+              (x0 >= 74864 and x0 <= 74868) or (x0 >= 77809 and x0 <= 77810) or
+              (x0 >= 92782 and x0 <= 92783) or
+              x0 === 92917 or (x0 >= 92983 and x0 <= 92987) or x0 === 92996 or
+              (x0 >= 93847 and x0 <= 93850) or
+              x0 === 94178 or x0 === 113_823 or (x0 >= 121_479 and x0 <= 121_483) or
+              (x0 >= 125_278 and x0 <= 125_279) do
     {:error,
-     "did not expect utf8 codepoint in the range '\\n' to '\\r' or equal to '\\x85' or equal to ' ' or equal to ' ' or equal to ' ' or equal to ' ' or equal to ' ' or in the range ' ' to ' ' or equal to ' ' or equal to ' ' or equal to '　' or equal to ')' or equal to ']' or equal to '}' or equal to '༻' or equal to '༽' or equal to '᚜' or equal to '⁆' or equal to '⁾' or equal to '₎' or equal to '⌉' or equal to '⌋' or equal to '〉' or equal to '❩' or equal to '❫' or equal to '❭' or equal to '❯' or equal to '❱' or equal to '❳' or equal to '❵' or equal to '⟆' or equal to '⟧' or equal to '⟩' or equal to '⟫' or equal to '⟭' or equal to '⟯' or equal to '⦄' or equal to '⦆' or equal to '⦈' or equal to '⦊' or equal to '⦌' or equal to '⦎' or equal to '⦐' or equal to '⦒' or equal to '⦔' or equal to '⦖' or equal to '⦘' or equal to '⧙' or equal to '⧛' or equal to '⧽' or equal to '⸣' or equal to '⸥' or equal to '⸧' or equal to '⸩' or equal to '〉' or equal to '》' or equal to '」' or equal to '』' or equal to '】' or equal to '〕' or equal to '〗' or equal to '〙' or equal to '〛' or equal to '〞' or equal to '〟' or equal to '﴾' or equal to '︘' or equal to '︶' or equal to '︸' or equal to '︺' or equal to '︼' or equal to '︾' or equal to '﹀' or equal to '﹂' or equal to '﹄' or equal to '﹈' or equal to '﹚' or equal to '﹜' or equal to '﹞' or equal to '）' or equal to '］' or equal to '｝' or equal to '｠' or equal to '｣' or equal to '_' or equal to '‿' or equal to '⁀' or equal to '⁔' or equal to '︳' or equal to '︴' or equal to '﹍' or equal to '﹎' or equal to '﹏' or equal to '＿' or equal to '»' or equal to '’' or equal to '”' or equal to '›' or equal to '⸃' or equal to '⸅' or equal to '⸊' or equal to '⸍' or equal to '⸝' or equal to '⸡' or equal to '«' or equal to '‘' or equal to '‛' or equal to '“' or equal to '‟' or equal to '‹' or equal to '⸂' or equal to '⸄' or equal to '⸉' or equal to '⸌' or equal to '⸜' or equal to '⸠' or equal to '(' or equal to '[' or equal to '{' or equal to '༺' or equal to '༼' or equal to '᚛' or equal to '‚' or equal to '„' or equal to '⁅' or equal to '⁽' or equal to '₍' or equal to '⌈' or equal to '⌊' or equal to '〈' or equal to '❨' or equal to '❪' or equal to '❬' or equal to '❮' or equal to '❰' or equal to '❲' or equal to '❴' or equal to '⟅' or equal to '⟦' or equal to '⟨' or equal to '⟪' or equal to '⟬' or equal to '⟮' or equal to '⦃' or equal to '⦅' or equal to '⦇' or equal to '⦉' or equal to '⦋' or equal to '⦍' or equal to '⦏' or equal to '⦑' or equal to '⦓' or equal to '⦕' or equal to '⦗' or equal to '⧘' or equal to '⧚' or equal to '⧼' or equal to '⸢' or equal to '⸤' or equal to '⸦' or equal to '⸨' or equal to '⹂' or equal to '〈' or equal to '《' or equal to '「' or equal to '『' or equal to '【' or equal to '〔' or equal to '〖' or equal to '〘' or equal to '〚' or equal to '〝' or equal to '﴿' or equal to '︗' or equal to '︵' or equal to '︷' or equal to '︹' or equal to '︻' or equal to '︽' or equal to '︿' or equal to '﹁' or equal to '﹃' or equal to '﹇' or equal to '﹙' or equal to '﹛' or equal to '﹝' or equal to '（' or equal to '［' or equal to '｛' or equal to '｟' or equal to '｢' or equal to '!' or equal to '\"' or equal to '#' or equal to '%' or equal to '&' or equal to '\\'' or equal to '*' or equal to ',' or equal to '.' or equal to '/' or equal to ':' or equal to ';' or equal to '?' or equal to '@' or equal to '\\\\' or equal to '¡' or equal to '§' or equal to '¶' or equal to '·' or equal to '¿' or equal to ';' or equal to '·' or equal to '՚' or equal to '՛' or equal to '՜' or equal to '՝' or equal to '՞' or equal to '՟' or equal to '։' or equal to '׀' or equal to '׃' or equal to '׆' or equal to '׳' or equal to '״' or equal to '؉' or equal to '؊' or equal to '،' or equal to '؍' or equal to '؛' or equal to '؞' or equal to '؟' or equal to '٪' or equal to '٫' or equal to '٬' or equal to '٭' or equal to '۔' or equal to '܀' or equal to '܁' or equal to '܂' or equal to '܃' or equal to '܄' or equal to '܅' or equal to '܆' or equal to '܇' or equal to '܈' or equal to '܉' or equal to '܊' or equal to '܋' or equal to '܌' or equal to '܍' or equal to '߷' or equal to '߸' or equal to '߹' or equal to '࠰' or equal to '࠱' or equal to '࠲' or equal to '࠳' or equal to '࠴' or equal to '࠵' or equal to '࠶' or equal to '࠷' or equal to '࠸' or equal to '࠹' or equal to '࠺' or equal to '࠻' or equal to '࠼' or equal to '࠽' or equal to '࠾' or equal to '࡞' or equal to '।' or equal to '॥' or equal to '॰' or equal to '৽' or equal to '੶' or equal to '૰' or equal to '౷' or equal to '಄' or equal to '෴' or equal to '๏' or equal to '๚' or equal to '๛' or equal to '༄' or equal to '༅' or equal to '༆' or equal to '༇' or equal to '༈' or equal to '༉' or equal to '༊' or equal to '་' or equal to '༌' or equal to '།' or equal to '༎' or equal to '༏' or equal to '༐' or equal to '༑' or equal to '༒' or equal to '༔' or equal to '྅' or equal to '࿐' or equal to '࿑' or equal to '࿒' or equal to '࿓' or equal to '࿔' or equal to '࿙' or equal to '࿚' or equal to '၊' or equal to '။' or equal to '၌' or equal to '၍' or equal to '၎' or equal to '၏' or equal to '჻' or equal to '፠' or equal to '፡' or equal to '።' or equal to '፣' or equal to '፤' or equal to '፥' or equal to '፦' or equal to '፧' or equal to '፨' or equal to '᙮' or equal to '᛫' or equal to '᛬' or equal to '᛭' or equal to '᜵' or equal to '᜶' or equal to '។' or equal to '៕' or equal to '៖' or equal to '៘' or equal to '៙' or equal to '៚' or equal to '᠀' or equal to '᠁' or equal to '᠂' or equal to '᠃' or equal to '᠄' or equal to '᠅' or equal to '᠇' or equal to '᠈' or equal to '᠉' or equal to '᠊' or equal to '᥄' or equal to '᥅' or equal to '᨞' or equal to '᨟' or equal to '᪠' or equal to '᪡' or equal to '᪢' or equal to '᪣' or equal to '᪤' or equal to '᪥' or equal to '᪦' or equal to '᪨' or equal to '᪩' or equal to '᪪' or equal to '᪫' or equal to '᪬' or equal to '᪭' or equal to '᭚' or equal to '᭛' or equal to '᭜' or equal to '᭝' or equal to '᭞' or equal to '᭟' or equal to '᭠' or equal to '᯼' or equal to '᯽' or equal to '᯾' or equal to '᯿' or equal to '᰻' or equal to '᰼' or equal to '᰽' or equal to '᰾' or equal to '᰿' or equal to '᱾' or equal to '᱿' or equal to '᳀' or equal to '᳁' or equal to '᳂' or equal to '᳃' or equal to '᳄' or equal to '᳅' or equal to '᳆' or equal to '᳇' or equal to '᳓' or equal to '‖' or equal to '‗' or equal to '†' or equal to '‡' or equal to '•' or equal to '‣' or equal to '․' or equal to '‥' or equal to '…' or equal to '‧' or equal to '‰' or equal to '‱' or equal to '′' or equal to '″' or equal to '‴' or equal to '‵' or equal to '‶' or equal to '‷' or equal to '‸' or equal to '※' or equal to '‼' or equal to '‽' or equal to '‾' or equal to '⁁' or equal to '⁂' or equal to '⁃' or equal to '⁇' or equal to '⁈' or equal to '⁉' or equal to '⁊' or equal to '⁋' or equal to '⁌' or equal to '⁍' or equal to '⁎' or equal to '⁏' or equal to '⁐' or equal to '⁑' or equal to '⁓' or equal to '⁕' or equal to '⁖' or equal to '⁗' or equal to '⁘' or equal to '⁙' or equal to '⁚' or equal to '⁛' or equal to '⁜' or equal to '⁝' or equal to '⁞' or equal to '⳹' or equal to '⳺' or equal to '⳻' or equal to '⳼' or equal to '⳾' or equal to '⳿' or equal to '⵰' or equal to '⸀' or equal to '⸁' or equal to '⸆' or equal to '⸇' or equal to '⸈' or equal to '⸋' or equal to '⸎' or equal to '⸏' or equal to '⸐' or equal to '⸑' or equal to '⸒' or equal to '⸓' or equal to '⸔' or equal to '⸕' or equal to '⸖' or equal to '⸘' or equal to '⸙' or equal to '⸛' or equal to '⸞' or equal to '⸟' or equal to '⸪' or equal to '⸫' or equal to '⸬' or equal to '⸭' or equal to '⸮' or equal to '⸰' or equal to '⸱' or equal to '⸲' or equal to '⸳' or equal to '⸴' or equal to '⸵' or equal to '⸶' or equal to '⸷' or equal to '⸸' or equal to '⸹' or equal to '⸼' or equal to '⸽' or equal to '⸾' or equal to '⸿' or equal to '⹁' or equal to '⹃' or equal to '⹄' or equal to '⹅' or equal to '⹆' or equal to '⹇' or equal to '⹈' or equal to '⹉' or equal to '⹊' or equal to '⹋' or equal to '⹌' or equal to '⹍' or equal to '⹎' or equal to '⹏' or equal to '⹒' or equal to '、' or equal to '。' or equal to '〃' or equal to '〽' or equal to '・' or equal to '꓾' or equal to '꓿' or equal to '꘍' or equal to '꘎' or equal to '꘏' or equal to '꙳' or equal to '꙾' or equal to '꛲' or equal to '꛳' or equal to '꛴' or equal to '꛵' or equal to '꛶' or equal to '꛷' or equal to '꡴' or equal to '꡵' or equal to '꡶' or equal to '꡷' or equal to '꣎' or equal to '꣏' or equal to '꣸' or equal to '꣹' or equal to '꣺' or equal to '꣼' or equal to '꤮' or equal to '꤯' or equal to '꥟' or equal to '꧁' or equal to '꧂' or equal to '꧃' or equal to '꧄' or equal to '꧅' or equal to '꧆' or equal to '꧇' or equal to '꧈' or equal to '꧉' or equal to '꧊' or equal to '꧋' or equal to '꧌' or equal to '꧍' or equal to '꧞' or equal to '꧟' or equal to '꩜' or equal to '꩝' or equal to '꩞' or equal to '꩟' or equal to '꫞' or equal to '꫟' or equal to '꫰' or equal to '꫱' or equal to '꯫' or equal to '︐' or equal to '︑' or equal to '︒' or equal to '︓' or equal to '︔' or equal to '︕' or equal to '︖' or equal to '︙' or equal to '︰' or equal to '﹅' or equal to '﹆' or equal to '﹉' or equal to '﹊' or equal to '﹋' or equal to '﹌' or equal to '﹐' or equal to '﹑' or equal to '﹒' or equal to '﹔' or equal to '﹕' or equal to '﹖' or equal to '﹗' or equal to '﹟' or equal to '﹠' or equal to '﹡' or equal to '﹨' or equal to '﹪' or equal to '﹫' or equal to '！' or equal to '＂' or equal to '＃' or equal to '％' or equal to '＆' or equal to '＇' or equal to '＊' or equal to '，' or equal to '．' or equal to '／' or equal to '：' or equal to '；' or equal to '？' or equal to '＠' or equal to '＼' or equal to '｡' or equal to '､' or equal to '･' or equal to '𐄀' or equal to '𐄁' or equal to '𐄂' or equal to '𐎟' or equal to '𐏐' or equal to '𐕯' or equal to '𐡗' or equal to '𐤟' or equal to '𐤿' or equal to '𐩐' or equal to '𐩑' or equal to '𐩒' or equal to '𐩓' or equal to '𐩔' or equal to '𐩕' or equal to '𐩖' or equal to '𐩗' or equal to '𐩘' or equal to '𐩿' or equal to '𐫰' or equal to '𐫱' or equal to '𐫲' or equal to '𐫳' or equal to '𐫴' or equal to '𐫵' or equal to '𐫶' or equal to '𐬹' or equal to '𐬺' or equal to '𐬻' or equal to '𐬼' or equal to '𐬽' or equal to '𐬾' or equal to '𐬿' or equal to '𐮙' or equal to '𐮚' or equal to '𐮛' or equal to '𐮜' or equal to '𐽕' or equal to '𐽖' or equal to '𐽗' or equal to '𐽘' or equal to '𐽙' or equal to '𑁇' or equal to '𑁈' or equal to '𑁉' or equal to '𑁊' or equal to '𑁋' or equal to '𑁌' or equal to '𑁍' or equal to '𑂻' or equal to '𑂼' or equal to '𑂾' or equal to '𑂿' or equal to '𑃀' or equal to '𑃁' or equal to '𑅀' or equal to '𑅁' or equal to '𑅂' or equal to '𑅃' or equal to '𑅴' or equal to '𑅵' or equal to '𑇅' or equal to '𑇆' or equal to '𑇇' or equal to '𑇈' or equal to '𑇍' or equal to '𑇛' or equal to '𑇝' or equal to '𑇞' or equal to '𑇟' or equal to '𑈸' or equal to '𑈹' or equal to '𑈺' or equal to '𑈻' or equal to '𑈼' or equal to '𑈽' or equal to '𑊩' or equal to '𑑋' or equal to '𑑌' or equal to '𑑍' or equal to '𑑎' or equal to '𑑏' or equal to '𑑚' or equal to '𑑛' or equal to '𑑝' or equal to '𑓆' or equal to '𑗁' or equal to '𑗂' or equal to '𑗃' or equal to '𑗄' or equal to '𑗅' or equal to '𑗆' or equal to '𑗇' or equal to '𑗈' or equal to '𑗉' or equal to '𑗊' or equal to '𑗋' or equal to '𑗌' or equal to '𑗍' or equal to '𑗎' or equal to '𑗏' or equal to '𑗐' or equal to '𑗑' or equal to '𑗒' or equal to '𑗓' or equal to '𑗔' or equal to '𑗕' or equal to '𑗖' or equal to '𑗗' or equal to '𑙁' or equal to '𑙂' or equal to '𑙃' or equal to '𑙠' or equal to '𑙡' or equal to '𑙢' or equal to '𑙣' or equal to '𑙤' or equal to '𑙥' or equal to '𑙦' or equal to '𑙧' or equal to '𑙨' or equal to '𑙩' or equal to '𑙪' or equal to '𑙫' or equal to '𑙬' or equal to '𑜼' or equal to '𑜽' or equal to '𑜾' or equal to '𑠻' or equal to '𑥄' or equal to '𑥅' or equal to '𑥆' or equal to '𑧢' or equal to '𑨿' or equal to '𑩀' or equal to '𑩁' or equal to '𑩂' or equal to '𑩃' or equal to '𑩄' or equal to '𑩅' or equal to '𑩆' or equal to '𑪚' or equal to '𑪛' or equal to '𑪜' or equal to '𑪞' or equal to '𑪟' or equal to '𑪠' or equal to '𑪡' or equal to '𑪢' or equal to '𑱁' or equal to '𑱂' or equal to '𑱃' or equal to '𑱄' or equal to '𑱅' or equal to '𑱰' or equal to '𑱱' or equal to '𑻷' or equal to '𑻸' or equal to '𑿿' or equal to '𒑰' or equal to '𒑱' or equal to '𒑲' or equal to '𒑳' or equal to '𒑴' or equal to '𖩮' or equal to '𖩯' or equal to '𖫵' or equal to '𖬷' or equal to '𖬸' or equal to '𖬹' or equal to '𖬺' or equal to '𖬻' or equal to '𖭄' or equal to '𖺗' or equal to '𖺘' or equal to '𖺙' or equal to '𖺚' or equal to '𖿢' or equal to '𛲟' or equal to '𝪇' or equal to '𝪈' or equal to '𝪉' or equal to '𝪊' or equal to '𝪋' or equal to '𞥞' or equal to '𞥟'",
+     "did not expect utf8 codepoint in the range \"\\n\" to \"\\r\" or equal to <<194, 133>> or equal to \" \" or equal to \" \" or equal to \" \" or equal to \" \" or equal to \" \" or in the range \" \" to \" \" or equal to \" \" or equal to \" \" or equal to \"　\" or equal to \")\" or equal to \"]\" or equal to \"}\" or equal to \"༻\" or equal to \"༽\" or equal to \"᚜\" or equal to \"⁆\" or equal to \"⁾\" or equal to \"₎\" or equal to \"⌉\" or equal to \"⌋\" or equal to \"〉\" or equal to \"❩\" or equal to \"❫\" or equal to \"❭\" or equal to \"❯\" or equal to \"❱\" or equal to \"❳\" or equal to \"❵\" or equal to \"⟆\" or equal to \"⟧\" or equal to \"⟩\" or equal to \"⟫\" or equal to \"⟭\" or equal to \"⟯\" or equal to \"⦄\" or equal to \"⦆\" or equal to \"⦈\" or equal to \"⦊\" or equal to \"⦌\" or equal to \"⦎\" or equal to \"⦐\" or equal to \"⦒\" or equal to \"⦔\" or equal to \"⦖\" or equal to \"⦘\" or equal to \"⧙\" or equal to \"⧛\" or equal to \"⧽\" or equal to \"⸣\" or equal to \"⸥\" or equal to \"⸧\" or equal to \"⸩\" or equal to \"⹖\" or equal to \"⹘\" or equal to \"⹚\" or equal to \"⹜\" or equal to \"〉\" or equal to \"》\" or equal to \"」\" or equal to \"』\" or equal to \"】\" or equal to \"〕\" or equal to \"〗\" or equal to \"〙\" or equal to \"〛\" or in the range \"〞\" to \"〟\" or equal to \"﴾\" or equal to \"︘\" or equal to \"︶\" or equal to \"︸\" or equal to \"︺\" or equal to \"︼\" or equal to \"︾\" or equal to \"﹀\" or equal to \"﹂\" or equal to \"﹄\" or equal to \"﹈\" or equal to \"﹚\" or equal to \"﹜\" or equal to \"﹞\" or equal to \"）\" or equal to \"］\" or equal to \"｝\" or equal to \"｠\" or equal to \"｣\" or equal to \"_\" or in the range \"‿\" to \"⁀\" or equal to \"⁔\" or in the range \"︳\" to \"︴\" or in the range \"﹍\" to \"﹏\" or equal to \"＿\" or equal to \"»\" or equal to \"’\" or equal to \"”\" or equal to \"›\" or equal to \"⸃\" or equal to \"⸅\" or equal to \"⸊\" or equal to \"⸍\" or equal to \"⸝\" or equal to \"⸡\" or equal to \"«\" or equal to \"‘\" or in the range \"‛\" to \"“\" or equal to \"‟\" or equal to \"‹\" or equal to \"⸂\" or equal to \"⸄\" or equal to \"⸉\" or equal to \"⸌\" or equal to \"⸜\" or equal to \"⸠\" or equal to \"(\" or equal to \"[\" or equal to \"{\" or equal to \"༺\" or equal to \"༼\" or equal to \"᚛\" or equal to \"‚\" or equal to \"„\" or equal to \"⁅\" or equal to \"⁽\" or equal to \"₍\" or equal to \"⌈\" or equal to \"⌊\" or equal to \"〈\" or equal to \"❨\" or equal to \"❪\" or equal to \"❬\" or equal to \"❮\" or equal to \"❰\" or equal to \"❲\" or equal to \"❴\" or equal to \"⟅\" or equal to \"⟦\" or equal to \"⟨\" or equal to \"⟪\" or equal to \"⟬\" or equal to \"⟮\" or equal to \"⦃\" or equal to \"⦅\" or equal to \"⦇\" or equal to \"⦉\" or equal to \"⦋\" or equal to \"⦍\" or equal to \"⦏\" or equal to \"⦑\" or equal to \"⦓\" or equal to \"⦕\" or equal to \"⦗\" or equal to \"⧘\" or equal to \"⧚\" or equal to \"⧼\" or equal to \"⸢\" or equal to \"⸤\" or equal to \"⸦\" or equal to \"⸨\" or equal to \"⹂\" or equal to \"⹕\" or equal to \"⹗\" or equal to \"⹙\" or equal to \"⹛\" or equal to \"〈\" or equal to \"《\" or equal to \"「\" or equal to \"『\" or equal to \"【\" or equal to \"〔\" or equal to \"〖\" or equal to \"〘\" or equal to \"〚\" or equal to \"〝\" or equal to \"﴿\" or equal to \"︗\" or equal to \"︵\" or equal to \"︷\" or equal to \"︹\" or equal to \"︻\" or equal to \"︽\" or equal to \"︿\" or equal to \"﹁\" or equal to \"﹃\" or equal to \"﹇\" or equal to \"﹙\" or equal to \"﹛\" or equal to \"﹝\" or equal to \"（\" or equal to \"［\" or equal to \"｛\" or equal to \"｟\" or equal to \"｢\" or in the range \"!\" to \"#\" or in the range \"%\" to \"'\" or equal to \"*\" or equal to \",\" or in the range \".\" to \"/\" or in the range \":\" to \";\" or in the range \"?\" to \"@\" or equal to \"\\\\\" or equal to \"¡\" or equal to \"§\" or in the range \"¶\" to \"·\" or equal to \"¿\" or equal to \";\" or equal to \"·\" or in the range \"՚\" to \"՟\" or equal to \"։\" or equal to \"׀\" or equal to \"׃\" or equal to \"׆\" or in the range \"׳\" to \"״\" or in the range \"؉\" to \"؊\" or in the range \"،\" to \"؍\" or equal to \"؛\" or in the range \"؝\" to \"؟\" or in the range \"٪\" to \"٭\" or equal to \"۔\" or in the range \"܀\" to \"܍\" or in the range \"߷\" to \"߹\" or in the range \"࠰\" to \"࠾\" or equal to \"࡞\" or in the range \"।\" to \"॥\" or equal to \"॰\" or equal to \"৽\" or equal to \"੶\" or equal to \"૰\" or equal to \"౷\" or equal to \"಄\" or equal to \"෴\" or equal to \"๏\" or in the range \"๚\" to \"๛\" or in the range \"༄\" to \"༒\" or equal to \"༔\" or equal to \"྅\" or in the range \"࿐\" to \"࿔\" or in the range \"࿙\" to \"࿚\" or in the range \"၊\" to \"၏\" or equal to \"჻\" or in the range \"፠\" to \"፨\" or equal to \"᙮\" or in the range \"᛫\" to \"᛭\" or in the range \"᜵\" to \"᜶\" or in the range \"។\" to \"៖\" or in the range \"៘\" to \"៚\" or in the range \"᠀\" to \"᠅\" or in the range \"᠇\" to \"᠊\" or in the range \"᥄\" to \"᥅\" or in the range \"᨞\" to \"᨟\" or in the range \"᪠\" to \"᪦\" or in the range \"᪨\" to \"᪭\" or in the range \"᭚\" to \"᭠\" or in the range \"᭽\" to \"᭾\" or in the range \"᯼\" to \"᯿\" or in the range \"᰻\" to \"᰿\" or in the range \"᱾\" to \"᱿\" or in the range \"᳀\" to \"᳇\" or equal to \"᳓\" or in the range \"‖\" to \"‗\" or in the range \"†\" to \"‧\" or in the range \"‰\" to \"‸\" or in the range \"※\" to \"‾\" or in the range \"⁁\" to \"⁃\" or in the range \"⁇\" to \"⁑\" or equal to \"⁓\" or in the range \"⁕\" to \"⁞\" or in the range \"⳹\" to \"⳼\" or in the range \"⳾\" to \"⳿\" or equal to \"⵰\" or in the range \"⸀\" to \"⸁\" or in the range \"⸆\" to \"⸈\" or equal to \"⸋\" or in the range \"⸎\" to \"⸖\" or in the range \"⸘\" to \"⸙\" or equal to \"⸛\" or in the range \"⸞\" to \"⸟\" or in the range \"⸪\" to \"⸮\" or in the range \"⸰\" to \"⸹\" or in the range \"⸼\" to \"⸿\" or equal to \"⹁\" or in the range \"⹃\" to \"⹏\" or in the range \"⹒\" to \"⹔\" or in the range \"、\" to \"〃\" or equal to \"〽\" or equal to \"・\" or in the range \"꓾\" to \"꓿\" or in the range \"꘍\" to \"꘏\" or equal to \"꙳\" or equal to \"꙾\" or in the range \"꛲\" to \"꛷\" or in the range \"꡴\" to \"꡷\" or in the range \"꣎\" to \"꣏\" or in the range \"꣸\" to \"꣺\" or equal to \"꣼\" or in the range \"꤮\" to \"꤯\" or equal to \"꥟\" or in the range \"꧁\" to \"꧍\" or in the range \"꧞\" to \"꧟\" or in the range \"꩜\" to \"꩟\" or in the range \"꫞\" to \"꫟\" or in the range \"꫰\" to \"꫱\" or equal to \"꯫\" or in the range \"︐\" to \"︖\" or equal to \"︙\" or equal to \"︰\" or in the range \"﹅\" to \"﹆\" or in the range \"﹉\" to \"﹌\" or in the range \"﹐\" to \"﹒\" or in the range \"﹔\" to \"﹗\" or in the range \"﹟\" to \"﹡\" or equal to \"﹨\" or in the range \"﹪\" to \"﹫\" or in the range \"！\" to \"＃\" or in the range \"％\" to \"＇\" or equal to \"＊\" or equal to \"，\" or in the range \"．\" to \"／\" or in the range \"：\" to \"；\" or in the range \"？\" to \"＠\" or equal to \"＼\" or equal to \"｡\" or in the range \"､\" to \"･\" or in the range \"𐄀\" to \"𐄂\" or equal to \"𐎟\" or equal to \"𐏐\" or equal to \"𐕯\" or equal to \"𐡗\" or equal to \"𐤟\" or equal to \"𐤿\" or in the range \"𐩐\" to \"𐩘\" or equal to \"𐩿\" or in the range \"𐫰\" to \"𐫶\" or in the range \"𐬹\" to \"𐬿\" or in the range \"𐮙\" to \"𐮜\" or in the range \"𐽕\" to \"𐽙\" or in the range \"𐾆\" to \"𐾉\" or in the range \"𑁇\" to \"𑁍\" or in the range \"𑂻\" to \"𑂼\" or in the range \"𑂾\" to \"𑃁\" or in the range \"𑅀\" to \"𑅃\" or in the range \"𑅴\" to \"𑅵\" or in the range \"𑇅\" to \"𑇈\" or equal to \"𑇍\" or equal to \"𑇛\" or in the range \"𑇝\" to \"𑇟\" or in the range \"𑈸\" to \"𑈽\" or equal to \"𑊩\" or in the range \"𑑋\" to \"𑑏\" or in the range \"𑑚\" to \"𑑛\" or equal to \"𑑝\" or equal to \"𑓆\" or in the range \"𑗁\" to \"𑗗\" or in the range \"𑙁\" to \"𑙃\" or in the range \"𑙠\" to \"𑙬\" or equal to \"𑚹\" or in the range \"𑜼\" to \"𑜾\" or equal to \"𑠻\" or in the range \"𑥄\" to \"𑥆\" or equal to \"𑧢\" or in the range \"𑨿\" to \"𑩆\" or in the range \"𑪚\" to \"𑪜\" or in the range \"𑪞\" to \"𑪢\" or in the range \"𑬀\" to \"𑬉\" or in the range \"𑱁\" to \"𑱅\" or in the range \"𑱰\" to \"𑱱\" or in the range \"𑻷\" to \"𑻸\" or in the range \"𑽃\" to \"𑽏\" or equal to \"𑿿\" or in the range \"𒑰\" to \"𒑴\" or in the range \"𒿱\" to \"𒿲\" or in the range \"𖩮\" to \"𖩯\" or equal to \"𖫵\" or in the range \"𖬷\" to \"𖬻\" or equal to \"𖭄\" or in the range \"𖺗\" to \"𖺚\" or equal to \"𖿢\" or equal to \"𛲟\" or in the range \"𝪇\" to \"𝪋\" or in the range \"𞥞\" to \"𞥟\"",
      rest, context, line, offset}
   end
 
