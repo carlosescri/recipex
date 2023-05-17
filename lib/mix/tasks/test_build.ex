@@ -57,9 +57,8 @@ defmodule Mix.Tasks.Test.Build do
         |> then(&Map.put(map, "steps", &1))
       end
 
-      defp parse(text) do
-        text
-        |> Recipex.parse()
+      defp compatible(recipe) do
+        recipe
         |> Map.from_struct()
         |> stringify_keys()
         |> Map.take(["steps", "metadata"])
@@ -95,9 +94,9 @@ defmodule Mix.Tasks.Test.Build do
         do: component
       <%= for test <- @tests do %>
       test "<%= test.description %>" do
-        parsed = parse("<%= test.source %>")
+        {:ok, parsed} = Recipex.parse("<%= test.source %>")
         expected = patch_result(<%= inspect(test.result) %>)
-        assert parsed == expected
+        assert compatible(parsed) == expected
       end
       <% end %>
     end

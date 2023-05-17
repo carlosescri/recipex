@@ -6,26 +6,25 @@ defmodule Recipex do
   alias Recipex.Parser
   alias Recipex.Recipe
 
-  @spec parse(binary, any) ::
-          {:ok, list, binary, map, {pos_integer, pos_integer}, pos_integer} | map
+  @spec parse(binary, any) :: {:ok, Recipe.t()} | {:error, term}
   def parse(text, opts \\ []) do
-    with {:ok, [], "", recipe, _, _} <- Parser.parse_recipe(text) do
-      if Keyword.get(opts, :reduce, false) do
-        Recipe.reduce_steps(recipe)
-      else
-        recipe
-      end
+    case Parser.parse_recipe(text) do
+      {:ok, [], "", recipe, _, _} ->
+        recipe =
+          if Keyword.get(opts, :reduce, false) do
+            Recipe.reduce_steps(recipe)
+          else
+            recipe
+          end
+
+        {:ok, recipe}
+
+      other ->
+        {:error, other}
     end
   end
 
-  @spec parse_file(
-          binary
-          | maybe_improper_list(
-              binary | maybe_improper_list(any, binary | []) | char,
-              binary | []
-            ),
-          any
-        ) :: {:ok, list, binary, map, {pos_integer, pos_integer}, pos_integer} | map
+  @spec parse_file(binary, keyword) :: {:ok, Recipe.t()} | {:error, term}
   def parse_file(path, opts \\ []) do
     path |> File.read!() |> parse(opts)
   end
