@@ -1,5 +1,5 @@
 # Generated from lib/recipex/parser.ex.exs, do not edit.
-# Generated at 2023-05-17 19:55:38Z.
+# Generated at 2023-05-17 20:41:24Z.
 
 defmodule Recipex.Parser do
   @moduledoc false

@@ -29,13 +29,7 @@ defmodule Recipex.Parser.Utils do
 
   @spec build_recipe(binary, list, map, term, term) :: {binary, list, Recipe.t()}
   def build_recipe(rest, args, context, _line, _offset) do
-    case context do
-      %{} = context ->
-        {rest, args, struct(Recipe, context)}
-
-      _ ->
-        {:error, :invalid_context}
-    end
+    {rest, args, struct(Recipe, context)}
   end
 
   @spec process_block(binary, list, Recipe.t(), term, term) :: {binary, [], Recipe.t()}
